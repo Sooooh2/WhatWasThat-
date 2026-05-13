@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c1ssw1gvxq0fn"]
+
+[ext_resource type="Script" uid="uid://ct55flux4m8nk" path="res://jumpscares/on_chair.gd" id="1_nmsan"]
+[ext_resource type="Texture2D" uid="uid://d4mpybibmkhv5" path="res://mansitting-removebg-preview.png" id="1_s75hy"]
+
+[node name="on_chair" type="Node3D" unique_id=1174076433]
+script = ExtResource("1_nmsan")
+
+[node name="man_sat" type="Sprite3D" parent="." unique_id=803807023]
+transform = Transform3D(-0.025517913, 0, 0.5093612, 0, 0.51, 0, -0.5093612, 0, -0.025517913, 0, 0, 0)
+texture = ExtResource("1_s75hy")

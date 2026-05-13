@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://28kjj47ty4f6"]
+
+[ext_resource type="PackedScene" uid="uid://bqbrol6t6v1ar" path="res://ui/ui.tscn" id="1_1cf1h"]
+[ext_resource type="Script" uid="uid://do1dax0k86pwn" path="res://start menu/start_menu.gd" id="1_inc11"]
+
+[node name="start menu" type="Node3D" unique_id=506519926]
+script = ExtResource("1_inc11")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=869483493]
+offset_right = 1164.0
+offset_bottom = 553.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1433869327]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="ui" parent="SubViewportContainer" unique_id=1347197611 instance=ExtResource("1_1cf1h")]
+layout_mode = 2

@@ -1,0 +1,33 @@
+# Godot
+.godot/
+.import/
+
+# Mono/C#
+.mono/
+data_*/
+export_presets.cfg
+
+# Imported files
+*.import
+
+# Build/export folders
+build/
+exports/
+
+# Godot editor files
+*.translation
+
+# Blender temp/backups
+*.blend1
+*.blend2
+*.blend@
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Logs
+*.log

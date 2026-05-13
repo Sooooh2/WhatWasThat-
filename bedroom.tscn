@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bwfcr8cydw127"]
+
+[ext_resource type="PackedScene" uid="uid://cr0gmmxxawqc7" path="res://bedroom.blend" id="1_kpde0"]
+
+[node name="bedroom" unique_id=1798091556 instance=ExtResource("1_kpde0")]
+
+[node name="Light" parent="." index="1" unique_id=204248383]
+visible = false
+
+[node name="roof" parent="." index="3" unique_id=446382938]
+transform = Transform3D(-1.1094408, -0.0018329102, 0, 0.0020332036, -1.0001484, 0, 0, 0, 1.1010088, 0.0039014816, 1.3712645, -0.24008396)
+
+[node name="glass" parent="." index="7" unique_id=911303940]
+visible = false
+
+[node name="walls_001" parent="." index="8" unique_id=584627503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0544192, -2.0157576, -0.0067546368, -0.01186049)
+
+[node name="tablefan-blade" parent="table-area/table-fan" parent_id_path=PackedInt32Array(381031491) index="0" unique_id=1235949914]
+transform = Transform3D(0.18487862, -0.7132907, 0.07597691, 12.419692, 0.010791625, 0.009002038, 0.07082704, -0.03044495, -1.7768593, 0.7039604, -16.766747, -0.0046606064)
+
+[node name="bedframe" parent="bed-area" parent_id_path=PackedInt32Array(2040687835) index="1" unique_id=963040442]
+transform = Transform3D(0.36331022, 0, 0, 0, 0.030965542, 0, 0, 0, 0.48161805, 0.048713565, 0.11377028, -0.16085982)
+
+[node name="clock" parent="bed-area" parent_id_path=PackedInt32Array(2040687835) index="6" unique_id=69855008]
+transform = Transform3D(-0.011265974, -0.009163657, -0.0057121976, 0, 0.0013612272, -0.041454323, 0.040332507, -0.0025596602, -0.0015955735, -0.28494656, 0.33720213, -0.031314194)
+
+[node name="lamp-bulb" parent="bed-area/lamp" parent_id_path=PackedInt32Array(1042513740) index="0" unique_id=794859269]
+visible = false
+
+[node name="nin-switch" parent="bed-area" parent_id_path=PackedInt32Array(2040687835) index="8" unique_id=1034916035]
+transform = Transform3D(0.016144428, 0, 0.06575766, 0, -0.005212935, 0, -0.027513431, 0, 0.038585514, -0.2806151, 0.29989454, 0.03989297)
+
+[node name="Area" parent="." index="11" unique_id=1452954158]
+transform = Transform3D(0.40341485, 0.10739659, -0.9086927, 0.91397893, 8.1756085e-08, 0.4057617, 0.043577492, -0.99421626, -0.09815819, -1.8058386, 0.83128524, 0.41056076)
+visible = false
+
+[node name="bath-door" parent="bathroom-door" parent_id_path=PackedInt32Array(724373197) index="0" unique_id=881300737]
+transform = Transform3D(0.029305907, 0, -0.09710586, 0, 0.5482173, 0, 0.012257579, 0, 0.23216452, 0.0352031, 0, 0.08646718)
+
+[node name="Point" parent="." index="20" unique_id=1469766499]
+visible = false
