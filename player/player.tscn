@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://crl0rk672ig4a"]
+
+[ext_resource type="Script" uid="uid://81jrn4v5y683" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://cv1n2axti1bu5" path="res://player/cam_rig.gd" id="2_rkbax"]
+
+[node name="player" type="Node3D" unique_id=323690231]
+script = ExtResource("1_rkbax")
+
+[node name="rig" type="Node3D" parent="." unique_id=48382352]
+script = ExtResource("2_rkbax")
+
+[node name="cam" type="Camera3D" parent="rig" unique_id=1372136121]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+fov = 73.3
+
+[node name="flashlight" type="SpotLight3D" parent="rig" unique_id=985563036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06290659, 0.025069658, -0.051424466)
+light_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
+light_energy = 0.7
+shadow_enabled = true
+spot_range = 3.7051473

@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cm5p4kru20jfo"]
+
+[ext_resource type="PackedScene" uid="uid://bwfcr8cydw127" path="res://bedroom.tscn" id="1_7lnir"]
+[ext_resource type="Script" uid="uid://dlmr2g7fo033s" path="res://level/level.gd" id="1_qohg2"]
+[ext_resource type="PackedScene" uid="uid://crl0rk672ig4a" path="res://player/player.tscn" id="4_ktfr2"]
+[ext_resource type="PackedScene" uid="uid://bqbrol6t6v1ar" path="res://ui/ui.tscn" id="4_vkbyq"]
+[ext_resource type="Script" uid="uid://ig43uu6fqcl8" path="res://level/event_manager.gd" id="6_44x8d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7lnir"]
+sky_top_color = Color(0.053486228, 0.07382905, 0.15864122, 1)
+sky_horizon_color = Color(0.011633774, 5.4147094e-08, 0.16028047, 1)
+sky_curve = 0.14489052
+
+[sub_resource type="Sky" id="Sky_5gx2l"]
+sky_material = SubResource("ProceduralSkyMaterial_7lnir")
+
+[sub_resource type="Environment" id="Environment_qohg2"]
+background_mode = 2
+sky = SubResource("Sky_5gx2l")
+ambient_light_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
+fog_mode = 1
+fog_light_color = Color(0.03413565, 0.08050568, 0.12842348, 1)
+fog_density = 1.0
+adjustment_enabled = true
+adjustment_brightness = 0.55
+adjustment_contrast = 1.07
+
+[node name="level" type="Node3D" unique_id=677059764]
+script = ExtResource("1_qohg2")
+
+[node name="bedroom" parent="." unique_id=1798091556 instance=ExtResource("1_7lnir")]
+
+[node name="ui" parent="." unique_id=1347197611 instance=ExtResource("4_vkbyq")]
+
+[node name="player" parent="." unique_id=323690231 instance=ExtResource("4_ktfr2")]
+transform = Transform3D(-0.1039864, -0.29752484, -0.94903404, -0.032406077, 0.95471406, -0.29575473, 0.99405056, 0, -0.10891889, -0.8485098, 0.40325463, -0.7600706)
+
+[node name="env" type="Node3D" parent="." unique_id=1765976000]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=67970539]
+environment = SubResource("Environment_qohg2")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="env" unique_id=1776183725]
+transform = Transform3D(0.3293243, 0.056982875, 0.9424959, -0.3598102, 0.93043566, 0.06947019, -0.87297314, -0.36199787, 0.32691807, 2.9362378, 0.77210164, 0.38185787)
+light_color = Color(0.31561726, 0.5143803, 0.7087293, 1)
+shadow_enabled = true
+spot_range = 4.0418053
+
+[node name="OmniLight3D" type="OmniLight3D" parent="env" unique_id=1994384690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.425272, 0.91970146, 0.26786888)
+light_color = Color(0.82594025, 0.6392493, 0.35187888, 1)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 5.8643093
+
+[node name="lamp" type="OmniLight3D" parent="env" unique_id=1938144192]
+transform = Transform3D(-0.71958125, 0.5523353, -0.42086643, -0.49710202, 0.013457841, 0.86758775, 0.48486328, 0.83351344, 0.26488298, -0.7791225, 0.45434588, -1.3183987)
+visible = false
+light_color = Color(0.8089983, 0.8089983, 0.8089982, 1)
+light_energy = 0.1
+shadow_enabled = true
+shadow_blur = 10.0
+distance_fade_enabled = true
+distance_fade_length = 0.0
+omni_range = 2.1538467
+
+[node name="ceil_lamp" type="OmniLight3D" parent="env" unique_id=1569970768]
+transform = Transform3D(0.68589336, 0.3779541, 0.6218524, -0.7032795, 0.56381315, 0.43302733, -0.18694426, -0.7343469, 0.65252334, 0.829583, 0.93983686, -0.32870156)
+light_color = Color(0.7420834, 0.6386366, 0.4699688, 1)
+light_energy = 0.46
+shadow_enabled = true
+omni_range = 1.59671
+
+[node name="event_manager" type="Node3D" parent="." unique_id=1253316194]
+script = ExtResource("6_44x8d")
+
+[node name="scarePoints" type="Node3D" parent="." unique_id=860828672]
+
+[node name="doorPoint" type="Marker3D" parent="scarePoints" unique_id=292412308]
+transform = Transform3D(0.9322859, 0, 0.3617222, 0, 1, 0, -0.3617222, 0, 0.9322859, 0.4743615, 0.184944, -1.328667)
+
+[node name="chairPoint" type="Marker3D" parent="scarePoints" unique_id=649825904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40483844, 0.34177357, 0.39866215)
+
+[node name="cupboardPoint" type="Marker3D" parent="scarePoints" unique_id=248821416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0757712, 0.74474317)
+
+[node name="cornerPoint" type="Marker3D" parent="scarePoints" unique_id=622148207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.68961895, 0.21201771, 0.82367945)
+
+[node name="bedPoint" type="Marker3D" parent="scarePoints" unique_id=2028994458]

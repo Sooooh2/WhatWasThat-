@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bjn510bceh888"]
+
+[ext_resource type="Script" uid="uid://bip41hh7a8slb" path="res://jumpscares/above_cupboard.gd" id="1_2a1jc"]
+[ext_resource type="Texture2D" uid="uid://ekebwjfby35" path="res://jumpscares/sittting-removebg-preview.png" id="1_cbwiy"]
+
+[node name="above_cupboard" type="Node3D" unique_id=755075054]
+script = ExtResource("1_2a1jc")
+
+[node name="man_above" type="Sprite3D" parent="." unique_id=773469445]
+transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0, 0, 0)
+texture = ExtResource("1_cbwiy")
