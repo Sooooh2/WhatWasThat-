@@ -26,9 +26,7 @@ var prev_scare = null
 
 
 func _ready():
-	print("EVENT MANAGER READY")
-	print(self)
-	print(get_path())
+	$"../bedroom_noise".play()
 	event_loop()
 
 
@@ -45,16 +43,12 @@ func start_scare():
 
 	if curr_scare != null:
 		return
-
 	var available_scares = scares.values().duplicate()
 
 	if prev_scare != null:
 		available_scares.erase(prev_scare)
-	
 	var chosen_scare = available_scares.pick_random()
-
 	var scare_scene = scare_scenes[chosen_scare]
-	
 	var marker = scare_points[chosen_scare]
 	curr_scare = scare_scene.instantiate()
 
@@ -62,12 +56,9 @@ func start_scare():
 	curr_scare.global_transform = marker.global_transform
 
 	print("scare started:", curr_scare)
-
 	await curr_scare.scare_fin
-
 	print("finished this:", curr_scare)
 	
 	prev_scare = chosen_scare
 	curr_scare.queue_free()
-
 	curr_scare = null

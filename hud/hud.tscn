@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bqbrol6t6v1ar"]
+
+[ext_resource type="Script" uid="uid://c4jmsg1m5v61e" path="res://hud/hud.gd" id="1_ks8t7"]
+[ext_resource type="Texture2D" uid="uid://bjhw3t71msdr1" path="res://icon.svg" id="1_nb4k0"]
+
+[sub_resource type="SystemFont" id="SystemFont_2gk58"]
+
+[node name="hud" type="Control" unique_id=1347197611]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 459.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ks8t7")
+
+[node name="menu" type="TextureButton" parent="." unique_id=191984361]
+visible = false
+layout_mode = 0
+offset_left = 89.0
+offset_top = 29.0
+offset_right = 217.0
+offset_bottom = 157.0
+texture_normal = ExtResource("1_nb4k0")
+texture_pressed = ExtResource("1_nb4k0")
+
+[node name="message" type="Label" parent="." unique_id=1795526815]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 25
+
+[node name="pause_menu" type="Control" parent="." unique_id=1437686329]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="pause_menu" unique_id=1792796518]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 55.0
+offset_right = 1054.0
+offset_bottom = 595.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="pause_menu/MarginContainer" unique_id=1035367032]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_2gk58")
+theme_override_font_sizes/normal_font_size = 37
+text = "Audio level : 
+
+Return to Main Menu "
+
+[node name="menu_cont" type="Control" parent="." unique_id=1319775477]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="menu_cont" unique_id=210239552]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 68.0
+offset_right = 637.0
+offset_bottom = 601.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="menu_cont/MarginContainer" unique_id=12684690]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 29
+text = "Press \"F\" to toggle flashlight.
+Press \"RMB\" to go inside blanket.
+Press \"ESC\" to close the game.
+"
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
