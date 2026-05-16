@@ -1,5 +1,7 @@
 extends Node3D
 
+
+# variables
 @onready var menu_cont: Control = $CanvasLayer/hud/menu_cont
 @onready var menu: TextureButton = $CanvasLayer/hud/menu
 @onready var hud: Control = $CanvasLayer/hud
@@ -15,7 +17,6 @@ func _ready() -> void:
 	hud._show_msg("press space to show cursor",2.0)
 
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
@@ -23,7 +24,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		$env/lamp.visible = !$env/lamp.visible
 	if event.is_action_pressed("switch"):
 		$env/ceil_lamp.visible = !$env/ceil_lamp.visible
-	
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_blanket"):
 		print("right clicked")

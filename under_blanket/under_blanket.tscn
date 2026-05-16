@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://crl0rk672ig4a" path="res://player/player.tscn" id="1_4gmjm"]
 [ext_resource type="Script" uid="uid://e6uo4jsh6qvb" path="res://under_blanket/under_blanket.gd" id="1_bc10e"]
 [ext_resource type="PackedScene" uid="uid://bqbrol6t6v1ar" path="res://hud/hud.tscn" id="3_rr7lv"]
+[ext_resource type="PackedScene" uid="uid://8f3gdt4xgl57" path="res://Interactables/photo.tscn" id="4_q6wj3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bc10e"]
 sky_top_color = Color(0.054220617, 0.07459121, 0.10172378, 1)
@@ -16,10 +17,6 @@ background_mode = 1
 sky = SubResource("Sky_rr7lv")
 ambient_light_energy = 0.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_4gmjm"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bc10e"]
-
 [node name="under_blanket" type="Node3D" unique_id=1117385828]
 script = ExtResource("1_bc10e")
 
@@ -29,14 +26,14 @@ environment = SubResource("Environment_6m26y")
 [node name="player" parent="." unique_id=323690231 instance=ExtResource("1_4gmjm")]
 transform = Transform3D(1, 0, 0, 0, 0.898572, 0.43882602, 0, -0.43882602, 0.898572, 0, 1.0212309, 0)
 
-[node name="photo1" type="MeshInstance3D" parent="." unique_id=1361597586]
-transform = Transform3D(0.98130447, -0.037983313, 0.09308795, 0.12164645, 0.48879457, -0.6824149, -0.023421003, 0.9473085, 0.35584655, -0.91019285, 0.21759136, -1.6548846)
-mesh = SubResource("PlaneMesh_4gmjm")
-surface_material_override/0 = SubResource("StandardMaterial3D_bc10e")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=141211347]
 
-[node name="photo2" type="MeshInstance3D" parent="." unique_id=1398974484]
-transform = Transform3D(1.055157, 0.07699008, -0.22871615, -0.28292766, 0.4631964, -0.7738094, 0.054473028, 0.9144791, 0.4112007, 0.17940927, -0.090944245, -1.9707747)
-mesh = SubResource("PlaneMesh_4gmjm")
-surface_material_override/0 = SubResource("StandardMaterial3D_bc10e")
+[node name="hud" parent="CanvasLayer" unique_id=1347197611 instance=ExtResource("3_rr7lv")]
 
-[node name="hud" parent="." unique_id=1347197611 instance=ExtResource("3_rr7lv")]
+[node name="Photos" type="Node3D" parent="." unique_id=762376461]
+
+[node name="Photo1" parent="Photos" unique_id=1305046314 instance=ExtResource("4_q6wj3")]
+transform = Transform3D(0.9999784, -0.006579846, 0, 0.006579846, 0.9999784, 0, 0, 0, 1, 0.64780116, 0.10018426, 0.018809557)
+
+[node name="Photo2" parent="Photos" unique_id=1193153590 instance=ExtResource("4_q6wj3")]
+transform = Transform3D(0.98222506, 0.18770704, 0, -0.18770704, 0.98222506, 0, 0, 0, 1, 1.4645942, 0, -0.102417946)
