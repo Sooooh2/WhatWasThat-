@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://crl0rk672ig4a" path="res://player/player.tscn" id="1_4gmjm"]
 [ext_resource type="Script" uid="uid://e6uo4jsh6qvb" path="res://under_blanket/under_blanket.gd" id="1_bc10e"]
 [ext_resource type="PackedScene" uid="uid://bqbrol6t6v1ar" path="res://hud/hud.tscn" id="3_rr7lv"]
-[ext_resource type="PackedScene" uid="uid://8f3gdt4xgl57" path="res://Interactables/photo.tscn" id="4_q6wj3"]
+[ext_resource type="PackedScene" uid="uid://8f3gdt4xgl57" path="res://Interactables/photo1/photo.tscn" id="4_q6wj3"]
+[ext_resource type="PackedScene" uid="uid://6gpkorslf3eu" path="res://Interactables/photo2/photo2.tscn" id="5_tdppm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bc10e"]
 sky_top_color = Color(0.054220617, 0.07459121, 0.10172378, 1)
@@ -36,7 +37,11 @@ transform = Transform3D(1, 0, 0, 0, 0.9971378, -0.075605236, 0, 0.075605236, 0.9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2037606)
 
 [node name="Photo1" parent="Photos" unique_id=1305046314 instance=ExtResource("4_q6wj3")]
-transform = Transform3D(0.16647452, -0.03444189, 0, 0.03428321, 0.16570756, 0.016299687, -0.003302305, -0.015961658, 0.16921678, -0.5070295, 0.10018426, 0.018809557)
+transform = Transform3D(0.16647452, -0.03444189, 0, 0.03428321, 0.16570756, 0.016299687, -0.003302305, -0.015961658, 0.16921678, -1.5596929, 0.10018426, 0.018809557)
 
-[node name="Photo2" parent="Photos" unique_id=1193153590 instance=ExtResource("4_q6wj3")]
-transform = Transform3D(0.15224488, 0.029094588, 0, -0.028965514, 0.15156947, 0.014584095, 0.0027375368, -0.0143248625, 0.15431236, 1.4645942, 0, -0.5548563)
+[node name="Photo2" parent="Photos" unique_id=312621711 instance=ExtResource("5_tdppm")]
+transform = Transform3D(0.18, 0, 0, 0, 0.17594747, 0.03798012, 0, -0.03798012, 0.17594747, 3.0810044, 0, -0.5834236)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=230834419]
+light_energy = 4.56
+shadow_enabled = true

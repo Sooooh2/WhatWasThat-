@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://6gpkorslf3eu"]
+
+[ext_resource type="Script" uid="uid://ex8ru721ef17" path="res://Interactables/photo2/photo_2.gd" id="1_21wtr"]
+[ext_resource type="Texture2D" uid="uid://cqr3c1qyvse1n" path="res://blender-things/photo1.png" id="1_emm2a"]
+[ext_resource type="Script" uid="uid://h5tde28fj0ie" path="res://Interactables/photo2/photo_static_2.gd" id="3_21wtr"]
+[ext_resource type="Shader" uid="uid://bcdxv5rh08jki" path="res://assets/shaders/border.gdshader" id="3_lr7ww"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pm1rq"]
+size = Vector3(19.126587, 1.4186668, 11.047852)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n467o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivdta"]
+render_priority = 0
+shader = ExtResource("3_lr7ww")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.01
+
+[node name="Photo2" type="Node3D" unique_id=312621711]
+script = ExtResource("1_21wtr")
+
+[node name="photo2" type="Sprite3D" parent="." unique_id=339765075]
+shaded = true
+alpha_cut = 3
+texture = ExtResource("1_emm2a")
+
+[node name="photo_collider2" type="StaticBody3D" parent="." unique_id=1248429154]
+script = ExtResource("3_21wtr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="photo_collider2" unique_id=1536093803]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.018493652, -0.033085346, -0.01741232)
+shape = SubResource("BoxShape3D_pm1rq")
+
+[node name="outline" type="MeshInstance3D" parent="." unique_id=44374153]
+transform = Transform3D(19.373255, 0, 0, 0, 11.119271, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_n467o")
+surface_material_override/0 = SubResource("ShaderMaterial_ivdta")
