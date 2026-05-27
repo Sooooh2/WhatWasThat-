@@ -33,5 +33,6 @@ shape = SubResource("BoxShape3D_gjli6")
 
 [node name="outline" type="MeshInstance3D" parent="." unique_id=2000748282]
 transform = Transform3D(19.373255, 0, 0, 0, 11.119271, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_ey6ry")
 surface_material_override/0 = SubResource("ShaderMaterial_e0biy")

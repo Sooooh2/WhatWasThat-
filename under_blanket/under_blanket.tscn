@@ -37,11 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9971378, -0.075605236, 0, 0.075605236, 0.9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2037606)
 
 [node name="Photo1" parent="Photos" unique_id=1305046314 instance=ExtResource("4_q6wj3")]
-transform = Transform3D(0.16647452, -0.03444189, 0, 0.03428321, 0.16570756, 0.016299687, -0.003302305, -0.015961658, 0.16921678, -1.5596929, 0.10018426, 0.018809557)
+transform = Transform3D(0.16647452, -0.03444189, 0, 0.03428321, 0.16570756, 0.016299687, -0.003302305, -0.015961658, 0.16921678, -0.8236481, 0.10018426, 0.018809557)
 
 [node name="Photo2" parent="Photos" unique_id=312621711 instance=ExtResource("5_tdppm")]
-transform = Transform3D(0.18, 0, 0, 0, 0.17594747, 0.03798012, 0, -0.03798012, 0.17594747, 3.0810044, 0, -0.5834236)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=230834419]
-light_energy = 4.56
-shadow_enabled = true
+transform = Transform3D(0.17717022, 0.031076007, 0.006708085, -0.031791776, 0.17318144, 0.037383046, 0, -0.03798013, 0.17594752, 1.6541159, 0, -0.5834236)

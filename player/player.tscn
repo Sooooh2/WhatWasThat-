@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://81jrn4v5y683" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Script" uid="uid://cv1n2axti1bu5" path="res://player/cam_rig.gd" id="2_rkbax"]
+[ext_resource type="AudioStream" uid="uid://d1c0y75hixm5w" path="res://assets/audio/click.mp3" id="3_g1dw6"]
 
 [node name="player" type="Node3D" unique_id=323690231]
 script = ExtResource("1_rkbax")
@@ -26,3 +27,6 @@ spot_angle = 35.81683
 [node name="RayCast3D" type="RayCast3D" parent="rig" unique_id=2047720557]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 target_position = Vector3(0, -5, 0)
+
+[node name="click" type="AudioStreamPlayer3D" parent="." unique_id=90876524]
+stream = ExtResource("3_g1dw6")
