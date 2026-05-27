@@ -17,6 +17,7 @@ shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/thickness = 0.01
 
 [node name="Photo2" type="Node3D" unique_id=312621711]
+transform = Transform3D(0.5105739, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_21wtr")
 
 [node name="photo2" type="Sprite3D" parent="." unique_id=339765075]
@@ -31,7 +32,7 @@ script = ExtResource("3_21wtr")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.018493652, -0.033085346, -0.01741232)
 shape = SubResource("BoxShape3D_pm1rq")
 
-[node name="outline" type="MeshInstance3D" parent="." unique_id=44374153]
+[node name="outline2" type="MeshInstance3D" parent="." unique_id=44374153]
 transform = Transform3D(19.373255, 0, 0, 0, 11.119271, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_n467o")

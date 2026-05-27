@@ -10,8 +10,10 @@ extends Node3D
 @export var maxZoom = 12
 @export var minZoom = 0.1
 @onready var click: AudioStreamPlayer3D = $"../click"
+@onready var flashlight: SpotLight3D = $flashlight
 
-
+var drag_distance := 0.0
+var drag_plane : Plane
 var og_pos : Vector3
 
 func _ready() -> void:
@@ -31,27 +33,41 @@ func _input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# rotate the cam - look around logic
-	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
-			rotation.y += -event.relative.x * cam_sense
-			rotation.y = clamp(rotation.y, deg_to_rad(-50), deg_to_rad(60))
-			rotation.x += -event.relative.y * cam_sense
-			rotation.x = clamp(rotation.x, deg_to_rad(-50), deg_to_rad(60))
+	if !Global.blanket_visited:
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			if event is InputEventMouseMotion:
+				rotation.y += -event.relative.x * cam_sense
+				rotation.y = clamp(rotation.y, deg_to_rad(-50), deg_to_rad(60))
+				rotation.x = clamp(rotation.x, deg_to_rad(-50), deg_to_rad(60))
 
 	# interaction with photos mechanism while under the blanket
-	if Input.mouse_mode == Input.MOUSE_MODE_CONFINED:
-		if Global.blanket_visited:
-			if Input.is_action_just_pressed("interact"):
-				if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-					click.play()
-					var mouse_pos = get_viewport().get_mouse_position()
-					var origin = cam.project_ray_origin(mouse_pos)
-					var end = origin  + cam.project_ray_normal(mouse_pos) * 1000
-					var query = PhysicsRayQueryParameters3D.create(origin,end)
-					var result = get_world_3d().direct_space_state.intersect_ray(query)
-				
-					if result : 
-						var obj = result.collider
+	if Global.blanket_visited:
+		flashlight.spot_angle = 40.0
+		flashlight.spot_range = 20
+		if Input.is_action_just_pressed("interact"):
+			click.play()
+			var mouse_pos = get_viewport().get_mouse_position()
+			var origin = cam.project_ray_origin(mouse_pos)
+			var end = origin  + cam.project_ray_normal(mouse_pos) * 1000
+			var query = PhysicsRayQueryParameters3D.create(origin,end)
+			var result = get_world_3d().direct_space_state.intersect_ray(query)
+		
+			if result : 
+				var obj = result.collider
+				if obj.has_method("inspect"):
+					obj.player = player
+					obj.inspect()
+					Global.dragged_obj = obj.get_parent()
+					print(Global.dragged_obj)
+					drag_plane = Plane(
+						cam.global_transform.basis.z,
+						Global.dragged_obj.global_position
+					)
+					drag_photo()
+		 
+		if Input.is_action_just_released("interact"):
+			Global.dragging = false
+			Global.dragged_obj = null
 	# zoom in and out logic  
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
@@ -73,7 +89,18 @@ func _process(delta: float) -> void:
 	
 	else:
 		cam.position = og_pos
+	if Global.dragging and Global.dragged_obj:
 
+		var mouse_pos = get_viewport().get_mouse_position()
+		var origin = cam.project_ray_origin(mouse_pos)
+		var dir = cam.project_ray_normal(mouse_pos)
+		var intersection = drag_plane.intersects_ray(origin,dir)
+		if intersection: 
+			Global.dragged_obj.global_position = intersection
+
+
+func drag_photo():
+	Global.dragging = true
 
 func _on_jumpscare(intensity):
 	# =function for when signal is called from the event manager

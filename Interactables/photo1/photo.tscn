@@ -17,6 +17,7 @@ shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/thickness = 0.01
 
 [node name="Photo1" type="Node3D" unique_id=1305046314 groups=["interactable"]]
+transform = Transform3D(0.61317384, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_gjli6")
 
 [node name="photo1" type="Sprite3D" parent="." unique_id=1568846371]

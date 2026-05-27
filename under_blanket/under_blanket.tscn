@@ -27,7 +27,7 @@ script = ExtResource("1_bc10e")
 environment = SubResource("Environment_6m26y")
 
 [node name="player" parent="." unique_id=323690231 instance=ExtResource("1_4gmjm")]
-transform = Transform3D(1, 0, 0, 0, 0.9971378, -0.075605236, 0, 0.075605236, 0.9971378, 0, 0.34515178, -1.1747259)
+transform = Transform3D(1, 0, 0, 0, 0.99770194, 0.06775411, 0, -0.06775411, 0.99770194, 0, 0.34515178, -1.1747259)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=141211347]
 
@@ -37,7 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9971378, -0.075605236, 0, 0.075605236, 0.9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2037606)
 
 [node name="Photo1" parent="Photos" unique_id=1305046314 instance=ExtResource("4_q6wj3")]
-transform = Transform3D(0.16647452, -0.03444189, 0, 0.03428321, 0.16570756, 0.016299687, -0.003302305, -0.015961658, 0.16921678, -0.8236481, 0.10018426, 0.018809557)
+transform = Transform3D(0.08416518, -0.038584046, 0, 0.017332697, 0.1856364, 0.016299687, -0.0016695593, -0.01788129, 0.16921678, -0.40155232, 0.10018426, 0.018809557)
 
 [node name="Photo2" parent="Photos" unique_id=312621711 instance=ExtResource("5_tdppm")]
-transform = Transform3D(0.17717022, 0.031076007, 0.006708085, -0.031791776, 0.17318144, 0.037383046, 0, -0.03798013, 0.17594752, 1.6541159, 0, -0.5834236)
+transform = Transform3D(0.06109016, 0.026747605, 0.0065005156, -0.01096214, 0.14905998, 0.036226295, 0, -0.032690093, 0.17050314, 0.9351883, 0.29135865, -0.40064096)

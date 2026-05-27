@@ -6,7 +6,6 @@ extends Node3D
 
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if !Global.blanket_visited:
 		hud._show_msg("Turn the flashlight on", 4.0)
 		Global.blanket_visited = true
