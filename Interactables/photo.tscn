@@ -2,25 +2,22 @@
 
 [ext_resource type="Script" uid="uid://besgr46tp6ch6" path="res://Interactables/photo.gd" id="1_gjli6"]
 [ext_resource type="Script" uid="uid://dcb0ejdmi0xi5" path="res://Interactables/photo_static.gd" id="2_bwksi"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_leyv4"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clyt6"]
+[ext_resource type="Texture2D" uid="uid://gdttpnfplpj" path="res://assets/bedroom.png" id="3_ey6ry"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gjli6"]
-size = Vector3(1.7683105, 0.33831787, 1.453125)
+size = Vector3(19.126587, 1.4186668, 11.047852)
 
 [node name="Photo1" type="Node3D" unique_id=1305046314 groups=["interactable"]]
 script = ExtResource("1_gjli6")
 
-[node name="photo1" type="MeshInstance3D" parent="." unique_id=1974621049]
-transform = Transform3D(0.9890928, 0, 0, 0, 0.35301968, -0.7315424, 0, 1.0065453, 0.25656953, -0.8131554, 0.21759136, -1.6548846)
-mesh = SubResource("PlaneMesh_leyv4")
-surface_material_override/0 = SubResource("StandardMaterial3D_clyt6")
+[node name="photo1" type="Sprite3D" parent="." unique_id=1568846371]
+shaded = true
+alpha_cut = 3
+texture = ExtResource("3_ey6ry")
 
 [node name="photo_collider" type="StaticBody3D" parent="." unique_id=354994141]
 script = ExtResource("2_bwksi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="photo_collider" unique_id=1013298179]
-transform = Transform3D(1, 0, 0, 0, 0.32886666, -0.94437635, 0, 0.94437635, 0.32886666, -0.7628174, 0.23986378, -1.6396667)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.018493652, -0.033085346, -0.01741232)
 shape = SubResource("BoxShape3D_gjli6")

@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://bjn510bceh888"]
 
 [ext_resource type="Script" uid="uid://bip41hh7a8slb" path="res://jumpscares/above_cupboard.gd" id="1_2a1jc"]
-[ext_resource type="Texture2D" uid="uid://ekebwjfby35" path="res://jumpscares/sittting-removebg-preview.png" id="1_cbwiy"]
+[ext_resource type="ArrayMesh" uid="uid://dsus3x2y1ls4t" path="res://assets/model/on_cupboard.tres" id="3_r607j"]
 
 [node name="above_cupboard" type="Node3D" unique_id=755075054]
+transform = Transform3D(-0.03267487, 0.004699809, 0, -0.009399618, -0.016337436, 0, 0, 0, 0.055, 0, 0, 0)
 script = ExtResource("1_2a1jc")
 
-[node name="man_above" type="Sprite3D" parent="." unique_id=773469445]
-transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0, 0, 0)
-texture = ExtResource("1_cbwiy")
+[node name="man_above" type="MeshInstance3D" parent="." unique_id=1262923454]
+transform = Transform3D(0.225, 0, 0, 0, 0.225, 0, 0, 0, 0.225, 0, 0, 0)
+mesh = ExtResource("3_r607j")

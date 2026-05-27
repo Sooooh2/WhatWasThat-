@@ -14,7 +14,9 @@ sky_material = SubResource("ProceduralSkyMaterial_bc10e")
 
 [sub_resource type="Environment" id="Environment_6m26y"]
 background_mode = 1
+background_color = Color(0.038397163, 0.038397174, 0.038397145, 1)
 sky = SubResource("Sky_rr7lv")
+ambient_light_color = Color(0.11858138, 0.11858138, 0.11858138, 1)
 ambient_light_energy = 0.0
 
 [node name="under_blanket" type="Node3D" unique_id=1117385828]
@@ -24,16 +26,17 @@ script = ExtResource("1_bc10e")
 environment = SubResource("Environment_6m26y")
 
 [node name="player" parent="." unique_id=323690231 instance=ExtResource("1_4gmjm")]
-transform = Transform3D(1, 0, 0, 0, 0.898572, 0.43882602, 0, -0.43882602, 0.898572, 0, 1.0212309, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9971378, -0.075605236, 0, 0.075605236, 0.9971378, 0, 0.34515178, -1.1747259)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=141211347]
 
 [node name="hud" parent="CanvasLayer" unique_id=1347197611 instance=ExtResource("3_rr7lv")]
 
 [node name="Photos" type="Node3D" parent="." unique_id=762376461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2037606)
 
 [node name="Photo1" parent="Photos" unique_id=1305046314 instance=ExtResource("4_q6wj3")]
-transform = Transform3D(0.9999784, -0.006579846, 0, 0.006579846, 0.9999784, 0, 0, 0, 1, 0.64780116, 0.10018426, 0.018809557)
+transform = Transform3D(0.16647452, -0.03444189, 0, 0.03428321, 0.16570756, 0.016299687, -0.003302305, -0.015961658, 0.16921678, -0.5070295, 0.10018426, 0.018809557)
 
 [node name="Photo2" parent="Photos" unique_id=1193153590 instance=ExtResource("4_q6wj3")]
-transform = Transform3D(0.98222506, 0.18770704, 0, -0.18770704, 0.98222506, 0, 0, 0, 1, 1.4645942, 0, -0.102417946)
+transform = Transform3D(0.15224488, 0.029094588, 0, -0.028965514, 0.15156947, 0.014584095, 0.0027375368, -0.0143248625, 0.15431236, 1.4645942, 0, -0.5548563)

@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://cw18dy0ybdehu"]
 
 [ext_resource type="Script" uid="uid://c4tuvclqk0aq2" path="res://jumpscares/behind_door.gd" id="1_1mj8q"]
-[ext_resource type="Texture2D" uid="uid://cw1rpkdnlexwb" path="res://jumpscares/istockphoto-1447925542-612x612-removebg-preview.png" id="1_58qrc"]
+[ext_resource type="ArrayMesh" uid="uid://dggsv5nc6nj2v" path="res://assets/model/bath_door_peer.tres" id="2_1mj8q"]
 
 [node name="behind_door" type="Node3D" unique_id=665309335]
 transform = Transform3D(-0.16199994, 0, 0.9867908, -0.24403673, 0.9689381, -0.04006314, -0.9561392, -0.24730343, -0.15696792, 0, 0, 0)
 script = ExtResource("1_1mj8q")
 
-[node name="man_stood" type="Sprite3D" parent="." unique_id=1395590876]
-transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 0, 0, 0)
-texture = ExtResource("1_58qrc")
+[node name="man_stood" type="MeshInstance3D" parent="." unique_id=554611676]
+mesh = ExtResource("2_1mj8q")

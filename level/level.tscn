@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqbrol6t6v1ar" path="res://hud/hud.tscn" id="4_vkbyq"]
 [ext_resource type="Script" uid="uid://ig43uu6fqcl8" path="res://level/event_manager.gd" id="6_44x8d"]
 [ext_resource type="AudioStream" uid="uid://bl6m0kwqsieon" path="res://assets/audio/bedroom-ambience.mp3" id="6_ivpvi"]
+[ext_resource type="AudioStream" uid="uid://dp1wcwv2jfmiu" path="res://assets/audio/gasp.mp3" id="7_ivpvi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7lnir"]
 sky_top_color = Color(0.053486228, 0.07382905, 0.15864122, 1)
@@ -32,7 +33,7 @@ script = ExtResource("1_qohg2")
 [node name="bedroom" parent="." unique_id=1798091556 instance=ExtResource("1_7lnir")]
 
 [node name="player" parent="." unique_id=323690231 instance=ExtResource("4_ktfr2")]
-transform = Transform3D(-0.1039864, -0.29752484, -0.94903404, -0.032406077, 0.95471406, -0.29575473, 0.99405056, 0, -0.10891889, -0.8485098, 0.40325463, -0.7600706)
+transform = Transform3D(0.0040135235, -0.29578352, -0.9552465, -0.03240608, 0.95471406, -0.29575473, 0.9994667, 0.032142818, -0.0057534054, -0.8485098, 0.40325463, -0.7600706)
 
 [node name="env" type="Node3D" parent="." unique_id=1765976000]
 
@@ -47,12 +48,20 @@ shadow_enabled = true
 spot_range = 8.390039
 
 [node name="OmniLight3D" type="OmniLight3D" parent="env" unique_id=1994384690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.425272, 0.91970146, 0.26786888)
+transform = Transform3D(1, 0, 0, 0, 0.94125855, 0.33768675, 0, -0.33768675, 0.94125855, -1.4270512, 0.91784203, 0.265903)
 light_color = Color(0.82594025, 0.6392493, 0.35187888, 1)
-light_energy = 0.5
+light_energy = 0.2
 shadow_enabled = true
 distance_fade_enabled = true
-omni_range = 5.8643093
+omni_range = 2.6257808
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="env" unique_id=1981660340]
+transform = Transform3D(1, 0, 0, 0, 0.94125855, 0.33768675, 0, -0.33768675, 0.94125855, 1.548541, 0.91784203, 0.4947239)
+light_color = Color(0.15022907, 0.21676457, 0.30236703, 1)
+light_energy = 0.2
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 6.7545533
 
 [node name="lamp" type="OmniLight3D" parent="env" unique_id=1938144192]
 transform = Transform3D(-0.71958125, 0.5523353, -0.42086643, -0.49710202, 0.013457841, 0.86758775, 0.48486328, 0.83351344, 0.26488298, -0.7791225, 0.45434588, -1.3183987)
@@ -85,19 +94,24 @@ script = ExtResource("6_44x8d")
 transform = Transform3D(0.9322859, 0, 0.3617222, 0, 1, 0, -0.3617222, 0, 0.9322859, 0.4743615, 0.44873378, -1.2789791)
 
 [node name="chairPoint" type="Marker3D" parent="scarePoints" unique_id=649825904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40483844, 0.34177357, 0.39866215)
+transform = Transform3D(0.06499999, 0, -0.09179869, 0, 0.047, 0, 0.1125833, 0, 0.052999996, 0.405, 0.6, 0.374)
 
 [node name="cupboardPoint" type="Marker3D" parent="scarePoints" unique_id=248821416]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0757712, 0.74474317)
+transform = Transform3D(0.024999999, 0, 0, 0, 0.001944947, -0.024924228, 0, 0.024924228, 0.001944947, 0, 1.0757712, 0.74474317)
 
 [node name="cornerPoint" type="Marker3D" parent="scarePoints" unique_id=622148207]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.68961895, 0.21201771, 0.82367945)
+transform = Transform3D(0.093446776, -0.023758793, -0.030294841, 0.072378404, 0.024809448, 0.07522661, -0.020713903, -0.02049417, 0.12618709, -0.9622781, 0.90046376, 0.19998533)
 
 [node name="bedPoint" type="Marker3D" parent="scarePoints" unique_id=2028994458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05711679, 0.30982232, -0.606416)
 
 [node name="bedroom_noise" type="AudioStreamPlayer3D" parent="." unique_id=1761698172]
 stream = ExtResource("6_ivpvi")
+volume_db = -0.8
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=140370075]
 
 [node name="hud" parent="CanvasLayer" unique_id=1347197611 instance=ExtResource("4_vkbyq")]
+
+[node name="player_gasp" type="AudioStreamPlayer3D" parent="." unique_id=1213047990]
+stream = ExtResource("7_ivpvi")
