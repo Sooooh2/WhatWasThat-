@@ -4,9 +4,10 @@ extends Node3D
 @onready var flashlight: SpotLight3D = $rig/flashlight
 @onready var hud: Control = $"../CanvasLayer/hud"
 
+signal flash_on
+signal battery_changed
 
 var drain_rate := 15.0
-var flashlight_on := false
 var curr_inspected_obj
 var can_move : bool
 var can_look : bool
@@ -18,13 +19,15 @@ func _input(event: InputEvent) -> void:
 		print("flashlight battery: ", Global.flash_battery)
 
 
-#func _process(delta: float) -> void:
-	#if flashlight.visible == true:
-		#Global.flash_battery -= drain_rate * delta
-		#if Global.flash_battery <= 0.0:
-			#Global.flash_battery = 0
-			#flashlight.visible = false
-			#hud._show_msg("flashlight battery died",2.0)
+func _process(delta: float) -> void:
+	if flashlight.visible:
+		Global.flash_battery = max(
+			Global.flash_battery - drain_rate * delta,
+			0.0
+		)
+		battery_changed.emit(Global.flash_battery)
+		if Global.flash_battery == 0:
+			hud._show_msg("No flashlight battery",2.0)
 
 
 func inspect_obj(obj):

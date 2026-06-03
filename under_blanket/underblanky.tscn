@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dwaelullvmbma"]
+
+[ext_resource type="Texture2D" uid="uid://gdttpnfplpj" path="res://assets/photos/bedroom.png" id="1_yiq06"]
+[ext_resource type="Texture2D" uid="uid://cqr3c1qyvse1n" path="res://blender-things/photo1.png" id="2_aiuo0"]
+
+[node name="under_blanky" type="Node2D" unique_id=746628871]
+
+[node name="p1" type="Sprite2D" parent="." unique_id=1079628711]
+texture = ExtResource("1_yiq06")
+
+[node name="p2" type="Sprite2D" parent="." unique_id=1333307779]
+texture = ExtResource("2_aiuo0")

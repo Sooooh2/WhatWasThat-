@@ -1,8 +1,6 @@
 extends Node3D
 
 
-
-
 signal jumpscare_triggered(intensity)
 
 enum scares {

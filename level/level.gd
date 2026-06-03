@@ -7,7 +7,6 @@ extends Node3D
 @onready var hud: Control = $CanvasLayer/hud
 
 
-
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	hud.get_node("menu").show()

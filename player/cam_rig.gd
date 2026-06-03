@@ -16,6 +16,7 @@ var drag_distance := 0.0
 var drag_plane : Plane
 var og_pos : Vector3
 
+
 func _ready() -> void:
 	# jumpscare occured signal form the event manager to enable cam shake
 	if event_manager:
@@ -24,7 +25,6 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	
 	# be able to capture and free the mouse cursor
 	if event.is_action_pressed("free_mouse"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -33,9 +33,13 @@ func _input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# rotate the cam - look around logic
-	if !Global.blanket_visited:
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			if event is InputEventMouseMotion:
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseMotion:
+			if !Global.blanket_visited:
+					rotation.y += -event.relative.x * cam_sense
+					rotation.y = clamp(rotation.y, deg_to_rad(-50), deg_to_rad(60))
+					rotation.x = clamp(rotation.x, deg_to_rad(-50), deg_to_rad(60))
+			else:
 				rotation.y += -event.relative.x * cam_sense
 				rotation.y = clamp(rotation.y, deg_to_rad(-50), deg_to_rad(60))
 				rotation.x = clamp(rotation.x, deg_to_rad(-50), deg_to_rad(60))
@@ -86,11 +90,10 @@ func _process(delta: float) -> void:
 		)
 		shake_strength = lerpf(shake_strength,0.0, shake_fade * delta)
 		cam.rotation_degrees.x += randf_range(-1, 1) * shake_strength * 2
-	
 	else:
 		cam.position = og_pos
+	# drag photos along a 2d plane - so only left/right and up/down
 	if Global.dragging and Global.dragged_obj:
-
 		var mouse_pos = get_viewport().get_mouse_position()
 		var origin = cam.project_ray_origin(mouse_pos)
 		var dir = cam.project_ray_normal(mouse_pos)
@@ -101,6 +104,7 @@ func _process(delta: float) -> void:
 
 func drag_photo():
 	Global.dragging = true
+
 
 func _on_jumpscare(intensity):
 	# =function for when signal is called from the event manager
