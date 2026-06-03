@@ -16,7 +16,6 @@ fov = 73.3
 
 [node name="flashlight" type="SpotLight3D" parent="rig" unique_id=985563036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06290659, 0.025069658, -0.051424466)
-visible = false
 light_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
 light_energy = 0.7
 shadow_enabled = true
@@ -30,5 +29,3 @@ target_position = Vector3(0, -5, 0)
 
 [node name="click" type="AudioStreamPlayer3D" parent="." unique_id=90876524]
 stream = ExtResource("3_g1dw6")
-
-[connection signal="visibility_changed" from="rig/flashlight" to="." method="_on_flashlight_visibility_changed"]

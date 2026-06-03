@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c4jmsg1m5v61e" path="res://hud/hud.gd" id="1_ks8t7"]
 [ext_resource type="Texture2D" uid="uid://bjhw3t71msdr1" path="res://icon.svg" id="1_nb4k0"]
-[ext_resource type="Texture2D" uid="uid://cijoa7ohibnwy" path="res://assets/ui/pixil-frame-0.png" id="3_svhta"]
+[ext_resource type="Texture2D" uid="uid://bsmcx5o6wtwhn" path="res://assets/ui/asfas.png" id="3_w8tcp"]
 [ext_resource type="Texture2D" uid="uid://b7gkyaw0l73nf" path="res://assets/ui/pixil-frame-0 (2).png" id="5_0ivg5"]
+[ext_resource type="Texture2D" uid="uid://bbin0wuwwn7om" path="res://assets/ui/pixil-frame-0 (1).png" id="5_fjv1a"]
+[ext_resource type="Texture2D" uid="uid://b2w86xfd7ewak" path="res://assets/ui/sdsfsvs.png" id="6_fjv1a"]
 
 [sub_resource type="SystemFont" id="SystemFont_2gk58"]
 subpixel_positioning = 0
@@ -86,8 +88,20 @@ offset_bottom = 575.0
 scale = Vector2(3.13, 3.13)
 value = 100.0
 fill_mode = 3
-texture_under = ExtResource("3_svhta")
+texture_under = ExtResource("3_w8tcp")
 texture_progress = ExtResource("5_0ivg5")
 tint_under = Color(0.051970966, 0.05197096, 0.05197095, 1)
+
+[node name="fear_meter" type="TextureProgressBar" parent="." unique_id=683334473]
+texture_filter = 1
+layout_mode = 0
+offset_left = -1.0000001
+offset_top = 397.00006
+offset_right = 33.652115
+offset_bottom = 432.19788
+scale = Vector2(3.38, 3.38)
+fill_mode = 3
+texture_under = ExtResource("5_fjv1a")
+texture_progress = ExtResource("6_fjv1a")
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

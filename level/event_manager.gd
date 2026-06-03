@@ -2,29 +2,33 @@ extends Node3D
 
 
 signal jumpscare_triggered(intensity)
+signal fear(fear_value)
 
 enum scares {
-	#on_chair,
-	#behind_door,
+	on_chair,
+	behind_door,
 	above_cupboard
 }
 
 var scare_scenes = {
-	#scares.on_chair: preload("res://jumpscares/on_chair.tscn"),
-	#scares.behind_door: preload("res://jumpscares/behind_door.tscn"),
+	scares.on_chair: preload("res://jumpscares/on_chair.tscn"),
+	scares.behind_door: preload("res://jumpscares/behind_door.tscn"),
 	scares.above_cupboard: preload("res://jumpscares/above_cupboard.tscn")
 }
 
 @onready var scare_points = {
-	#scares.on_chair: $"../scarePoints/chairPoint",
-	#scares.behind_door: $"../scarePoints/cornerPoint",
+	scares.on_chair: $"../scarePoints/chairPoint",
+	scares.behind_door: $"../scarePoints/cornerPoint",
 	scares.above_cupboard: $"../scarePoints/cupboardPoint"
 }
 
 var curr_scare = null
 var prev_scare = null
+var scare_present := false
+var drain_rate := 5.0
 
 @onready var player_gasp: AudioStreamPlayer3D = $"../player_gasp"
+@onready var hud: Control = $"../CanvasLayer/hud"
 @export var max_fear := 100
 @export var fear_gps := 10.0
 @export var scare_limit := 10
@@ -39,7 +43,6 @@ func _ready():
 
 func event_loop():
 	while true:
-		
 		await get_tree().create_timer(
 			randf_range(min_wait_time, max_wait_time)
 		).timeout
@@ -64,11 +67,23 @@ func start_scare():
 	curr_scare.global_transform = marker.global_transform
 	
 	jumpscare_triggered.emit(0.03)
-	
+	print(Global.fear_meter)
+
+	scare_present = true
 	print("scare started:", curr_scare)
 	await curr_scare.scare_fin
 	print("finished this:", curr_scare)
-	
+	scare_present = false
+	print(Global.fear_meter)
 	prev_scare = chosen_scare
 	curr_scare.queue_free()
 	curr_scare = null
+
+
+func _process(delta: float) -> void:
+	if scare_present:
+		Global.fear_meter = min(
+			Global.fear_meter + drain_rate * delta,
+			100.0
+		)
+		fear.emit(Global.fear_meter)

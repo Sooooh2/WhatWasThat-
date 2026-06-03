@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dwaelullvmbma"]
 
 [ext_resource type="Texture2D" uid="uid://gdttpnfplpj" path="res://assets/photos/bedroom.png" id="1_yiq06"]
-[ext_resource type="Texture2D" uid="uid://cqr3c1qyvse1n" path="res://blender-things/photo1.png" id="2_aiuo0"]
+[ext_resource type="Texture2D" uid="uid://cqr3c1qyvse1n" path="res://assets/photos/photo1.png" id="2_aiuo0"]
 
 [node name="under_blanky" type="Node2D" unique_id=746628871]
 
