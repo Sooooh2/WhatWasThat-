@@ -107,5 +107,5 @@ func drag_photo():
 
 
 func _on_jumpscare(intensity):
-	# =function for when signal is called from the event manager
+	# function for when signal is called from the event manager
 	shake_strength = intensity

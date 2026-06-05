@@ -8,5 +8,4 @@ transform = Transform3D(-0.03267487, 0.004699809, 0, -0.009399618, -0.016337436,
 script = ExtResource("1_2a1jc")
 
 [node name="man_above" type="MeshInstance3D" parent="." unique_id=1262923454]
-transform = Transform3D(0.225, 0, 0, 0, 0.225, 0, 0, 0, 0.225, 0, 0, 0)
 mesh = ExtResource("3_r607j")

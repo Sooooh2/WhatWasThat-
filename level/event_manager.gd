@@ -3,7 +3,7 @@ extends Node3D
 
 signal jumpscare_triggered(intensity)
 signal fear(fear_value)
-
+signal relax(relax_value)
 enum scares {
 	on_chair,
 	behind_door,
@@ -86,4 +86,13 @@ func _process(delta: float) -> void:
 			Global.fear_meter + drain_rate * delta,
 			100.0
 		)
+		Global.relax_meter = max(
+			Global.relax_meter - drain_rate * delta,
+			0.0
+		)
+		relax.emit(Global.relax_meter)
 		fear.emit(Global.fear_meter)
+
+func level_fail():
+	if Global.fear_meter == 100.0:
+		hud._show_msg("sooo scarredd !!!! ahhh",3.0)

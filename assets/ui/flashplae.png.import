@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2w86xfd7ewak"
-path="res://.godot/imported/sdsfsvs.png-0478306480afb04222470622b179d6d2.ctex"
+uid="uid://daplornclspw8"
+path="res://.godot/imported/flashplae.png-bd2391b1bc22228e0eb5e0409df4b49b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/sdsfsvs.png"
-dest_files=["res://.godot/imported/sdsfsvs.png-0478306480afb04222470622b179d6d2.ctex"]
+source_file="res://assets/ui/flashplae.png"
+dest_files=["res://.godot/imported/flashplae.png-bd2391b1bc22228e0eb5e0409df4b49b.ctex"]
 
 [params]
 

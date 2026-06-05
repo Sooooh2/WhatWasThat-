@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsmcx5o6wtwhn"
-path="res://.godot/imported/asfas.png-afbdd69b48f9450d4f8ca75cb56db74c.ctex"
+uid="uid://cg7uhctw6s5x"
+path="res://.godot/imported/batterycharged.png-8cc9fa24067a1db25df447356e084c18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/asfas.png"
-dest_files=["res://.godot/imported/asfas.png-afbdd69b48f9450d4f8ca75cb56db74c.ctex"]
+source_file="res://assets/ui/batterycharged.png"
+dest_files=["res://.godot/imported/batterycharged.png-8cc9fa24067a1db25df447356e084c18.ctex"]
 
 [params]
 

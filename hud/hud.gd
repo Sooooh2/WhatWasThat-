@@ -3,7 +3,11 @@ extends Control
 signal menu_pressed
 
 @onready var message: Label = $message
-@onready var flash_battery: TextureProgressBar = $flash_battery
+@onready var flash_battery: TextureProgressBar = $flashlight/flash_battery
+@onready var flash_battery_2: TextureProgressBar = $flashlight/flash_battery2
+@onready var flash_battery_3: TextureProgressBar = $flashlight/flash_battery3
+@onready var flash_battery_4: TextureProgressBar = $flashlight/flash_battery4
+@onready var flash_battery_5: TextureProgressBar = $flashlight/flash_battery5
 
 
 
@@ -17,6 +21,7 @@ func _ready() -> void:
 
 	if event_manager:
 		event_manager.fear.connect(_on_fear_changed)
+		event_manager.relax.connect(_on_relax_changed)
 
 # open pause menu 
 func _on_menu_pressed() -> void:
@@ -33,8 +38,16 @@ func _show_msg(txt: String, duration := 2.0):
 
 # flashlight battery ui update func 
 func _on_battery_changed(value):
-	$flash_battery.value = value
+	flash_battery.value = value
+	flash_battery_2.value = value
+	flash_battery_3.value = value
+	flash_battery_4.value = value
+	flash_battery_5.value = value
 
 
 func _on_fear_changed(value):
-	$fear_meter.value = value
+	$VBoxContainer/fearbar.value = value
+
+
+func _on_relax_changed(value):
+	$VBoxContainer/relaxbar.value = value

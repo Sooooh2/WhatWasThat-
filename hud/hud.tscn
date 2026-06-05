@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c4jmsg1m5v61e" path="res://hud/hud.gd" id="1_ks8t7"]
 [ext_resource type="Texture2D" uid="uid://bjhw3t71msdr1" path="res://icon.svg" id="1_nb4k0"]
-[ext_resource type="Texture2D" uid="uid://bsmcx5o6wtwhn" path="res://assets/ui/asfas.png" id="3_w8tcp"]
-[ext_resource type="Texture2D" uid="uid://b7gkyaw0l73nf" path="res://assets/ui/pixil-frame-0 (2).png" id="5_0ivg5"]
-[ext_resource type="Texture2D" uid="uid://bbin0wuwwn7om" path="res://assets/ui/pixil-frame-0 (1).png" id="5_fjv1a"]
-[ext_resource type="Texture2D" uid="uid://b2w86xfd7ewak" path="res://assets/ui/sdsfsvs.png" id="6_fjv1a"]
+[ext_resource type="Texture2D" uid="uid://clmh5jgxe1cxf" path="res://assets/ui/batterychaarged1.png" id="3_svhta"]
+[ext_resource type="Texture2D" uid="uid://cgvc7g23g74tx" path="res://assets/ui/battery0charged.png" id="4_fjv1a"]
+[ext_resource type="Texture2D" uid="uid://cg7uhctw6s5x" path="res://assets/ui/batterycharged.png" id="5_0ivg5"]
 
 [sub_resource type="SystemFont" id="SystemFont_2gk58"]
 subpixel_positioning = 0
@@ -15,14 +14,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 459.0
-offset_bottom = 131.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_ks8t7")
 
 [node name="menu" type="TextureButton" parent="." unique_id=191984361]
-visible = false
 layout_mode = 0
 offset_left = 89.0
 offset_top = 29.0
@@ -66,9 +64,9 @@ offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="menu_cont" unique_id=210239552]
 layout_mode = 0
-offset_left = 159.0
+offset_left = 243.315
 offset_top = 68.0
-offset_right = 637.0
+offset_right = 721.31506
 offset_bottom = 601.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="menu_cont/MarginContainer" unique_id=12684690]
@@ -79,29 +77,103 @@ Press \"RMB\" to go inside blanket.
 Press \"ESC\" to close the game.
 "
 
-[node name="flash_battery" type="TextureProgressBar" parent="." unique_id=617832256]
-texture_filter = 1
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1848402781]
+position = Vector2(164.79367, 802.019)
+rotation = -1.436406
+scale = Vector2(0.31147814, 0.2570253)
+texture = ExtResource("3_svhta")
+
+[node name="flashlight" type="VBoxContainer" parent="." unique_id=1117148667]
 layout_mode = 0
-offset_top = 510.99997
-offset_right = 64.0
-offset_bottom = 575.0
-scale = Vector2(3.13, 3.13)
+offset_left = 90.01932
+offset_top = 704.3213
+offset_right = 2010.0193
+offset_bottom = 4484.3213
+rotation = 0.08726646
+scale = Vector2(0.08, 0.08)
+theme_override_constants/separation = -405
+
+[node name="flash_battery5" type="TextureProgressBar" parent="flashlight" unique_id=71604968]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 400.0
+max_value = 500.0
+value = 500.0
+fill_mode = 3
+texture_under = ExtResource("4_fjv1a")
+texture_progress = ExtResource("5_0ivg5")
+
+[node name="flash_battery4" type="TextureProgressBar" parent="flashlight" unique_id=1361179208]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 300.0
+max_value = 400.0
+value = 400.0
+fill_mode = 3
+texture_under = ExtResource("4_fjv1a")
+texture_progress = ExtResource("5_0ivg5")
+
+[node name="flash_battery3" type="TextureProgressBar" parent="flashlight" unique_id=1102138243]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 200.0
+max_value = 300.0
+value = 300.0
+fill_mode = 3
+texture_under = ExtResource("4_fjv1a")
+texture_progress = ExtResource("5_0ivg5")
+
+[node name="flash_battery2" type="TextureProgressBar" parent="flashlight" unique_id=1475533114]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 100.0
+max_value = 200.0
+value = 200.0
+fill_mode = 3
+texture_under = ExtResource("4_fjv1a")
+texture_progress = ExtResource("5_0ivg5")
+
+[node name="flash_battery" type="TextureProgressBar" parent="flashlight" unique_id=617832256]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
 value = 100.0
 fill_mode = 3
-texture_under = ExtResource("3_w8tcp")
+texture_under = ExtResource("4_fjv1a")
 texture_progress = ExtResource("5_0ivg5")
-tint_under = Color(0.051970966, 0.05197096, 0.05197095, 1)
 
-[node name="fear_meter" type="TextureProgressBar" parent="." unique_id=683334473]
-texture_filter = 1
-layout_mode = 0
-offset_left = -1.0000001
-offset_top = 397.00006
-offset_right = 33.652115
-offset_bottom = 432.19788
-scale = Vector2(3.38, 3.38)
-fill_mode = 3
-texture_under = ExtResource("5_fjv1a")
-texture_progress = ExtResource("6_fjv1a")
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=928989045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=451383410]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 271.0
+offset_top = 873.0
+offset_right = -349.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
+
+[node name="fearbar" type="ProgressBar" parent="VBoxContainer" unique_id=1462735665]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="relaxbar" type="ProgressBar" parent="VBoxContainer" unique_id=1213403320]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

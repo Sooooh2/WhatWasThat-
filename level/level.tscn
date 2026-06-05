@@ -30,7 +30,8 @@ adjustment_contrast = 1.07
 [node name="level" type="Node3D" unique_id=677059764]
 script = ExtResource("1_qohg2")
 
-[node name="bedroom" parent="." unique_id=1798091556 instance=ExtResource("1_7lnir")]
+[node name="bedroom" parent="." unique_id=1274648459 instance=ExtResource("1_7lnir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00036031008, -0.0072535276, 0.00019621849)
 
 [node name="player" parent="." unique_id=323690231 instance=ExtResource("4_ktfr2")]
 transform = Transform3D(0.0040135235, -0.29578352, -0.9552465, -0.03240608, 0.95471406, -0.29575473, 0.9994667, 0.032142818, -0.0057534054, -0.8485098, 0.40325463, -0.7600706)
@@ -91,16 +92,17 @@ script = ExtResource("6_44x8d")
 [node name="scarePoints" type="Node3D" parent="." unique_id=860828672]
 
 [node name="doorPoint" type="Marker3D" parent="scarePoints" unique_id=292412308]
-transform = Transform3D(0.9322859, 0, 0.3617222, 0, 1, 0, -0.3617222, 0, 0.9322859, 0.4743615, 0.44873378, -1.2789791)
+transform = Transform3D(0.9322859, 0, 0.3617222, 0, 1, 0, -0.3617222, 0, 0.9322859, -0.8586978, 0.6286658, 0.25627863)
 
 [node name="chairPoint" type="Marker3D" parent="scarePoints" unique_id=649825904]
 transform = Transform3D(0.06499999, 0, -0.09179869, 0, 0.047, 0, 0.1125833, 0, 0.052999996, 0.405, 0.6, 0.374)
 
 [node name="cupboardPoint" type="Marker3D" parent="scarePoints" unique_id=248821416]
-transform = Transform3D(0.024999999, 0, 0, 0, 0.001944947, -0.024924228, 0, 0.024924228, 0.001944947, 0, 1.0757712, 0.74474317)
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0, 1.0757712, 0.58414966)
 
 [node name="cornerPoint" type="Marker3D" parent="scarePoints" unique_id=622148207]
 transform = Transform3D(0.093446776, -0.023758793, -0.030294841, 0.072378404, 0.024809448, 0.07522661, -0.020713903, -0.02049417, 0.12618709, -0.9622781, 0.90046376, 0.19998533)
+visible = false
 
 [node name="bedPoint" type="Marker3D" parent="scarePoints" unique_id=2028994458]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05711679, 0.30982232, -0.606416)
