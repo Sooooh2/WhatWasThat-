@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://nuytqyfaw78f"]
+
+[ext_resource type="Script" uid="uid://drj07wje5umoo" path="res://in_corner.gd" id="1_3ifg6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eodht"]
+
+[node name="in_corner" type="Node3D" unique_id=2071152745]
+script = ExtResource("1_3ifg6")
+
+[node name="man_corner" type="MeshInstance3D" parent="." unique_id=1632104010]
+mesh = SubResource("CapsuleMesh_eodht")

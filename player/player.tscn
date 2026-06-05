@@ -9,6 +9,11 @@ script = ExtResource("1_rkbax")
 
 [node name="rig" type="Node3D" parent="." unique_id=48382352]
 script = ExtResource("2_rkbax")
+shake_strength = null
+shake_fade = null
+cam_sense = null
+maxZoom = null
+minZoom = null
 
 [node name="cam" type="Camera3D" parent="rig" unique_id=1372136121]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)

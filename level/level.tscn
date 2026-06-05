@@ -30,7 +30,7 @@ adjustment_contrast = 1.07
 [node name="level" type="Node3D" unique_id=677059764]
 script = ExtResource("1_qohg2")
 
-[node name="bedroom" parent="." unique_id=1274648459 instance=ExtResource("1_7lnir")]
+[node name="bedroom" parent="." unique_id=910181481 instance=ExtResource("1_7lnir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00036031008, -0.0072535276, 0.00019621849)
 
 [node name="player" parent="." unique_id=323690231 instance=ExtResource("4_ktfr2")]
@@ -101,11 +101,13 @@ transform = Transform3D(0.06499999, 0, -0.09179869, 0, 0.047, 0, 0.1125833, 0, 0
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0, 1.0757712, 0.58414966)
 
 [node name="cornerPoint" type="Marker3D" parent="scarePoints" unique_id=622148207]
-transform = Transform3D(0.093446776, -0.023758793, -0.030294841, 0.072378404, 0.024809448, 0.07522661, -0.020713903, -0.02049417, 0.12618709, -0.9622781, 0.90046376, 0.19998533)
-visible = false
+transform = Transform3D(0.12000001, 0, 0, 0, 0.040000003, 0, 0, 0, 0.15000002, 0.6525221, 0.5737698, 0.82477295)
 
 [node name="bedPoint" type="Marker3D" parent="scarePoints" unique_id=2028994458]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05711679, 0.30982232, -0.606416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.093483195, 0.30982232, -0.606416)
+
+[node name="teddyPoint" type="Marker3D" parent="scarePoints" unique_id=972303911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18380857, 0.37289837, -0.899776)
 
 [node name="bedroom_noise" type="AudioStreamPlayer3D" parent="." unique_id=1761698172]
 stream = ExtResource("6_ivpvi")

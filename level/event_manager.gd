@@ -7,25 +7,35 @@ signal relax(relax_value)
 enum scares {
 	on_chair,
 	behind_door,
-	above_cupboard
+	above_cupboard,
+	behind_bed,
+	scare_teddy,
+	in_corner
 }
 
 var scare_scenes = {
 	scares.on_chair: preload("res://jumpscares/on_chair.tscn"),
 	scares.behind_door: preload("res://jumpscares/behind_door.tscn"),
-	scares.above_cupboard: preload("res://jumpscares/above_cupboard.tscn")
+	scares.above_cupboard: preload("res://jumpscares/above_cupboard.tscn"),
+	scares.behind_bed: preload("res://jumpscares/behind_bed.tscn"),
+	scares.scare_teddy: preload("res://jumpscares/scary_teddy.tscn"),
+	scares.in_corner: preload("res://jumpscares/in_corner.tscn")
 }
 
 @onready var scare_points = {
 	scares.on_chair: $"../scarePoints/chairPoint",
 	scares.behind_door: $"../scarePoints/cornerPoint",
-	scares.above_cupboard: $"../scarePoints/cupboardPoint"
+	scares.above_cupboard: $"../scarePoints/cupboardPoint",
+	scares.behind_bed: $"../scarePoints/bedPoint",
+	scares.scare_teddy: $"../scarePoints/teddyPoint",
+	scares.in_corner: $"../scarePoints/cornerPoint"
 }
 
 var curr_scare = null
 var prev_scare = null
 var scare_present := false
 var drain_rate := 5.0
+var anxious_drain := 10.0
 
 @onready var player_gasp: AudioStreamPlayer3D = $"../player_gasp"
 @onready var hud: Control = $"../CanvasLayer/hud"
@@ -79,20 +89,45 @@ func start_scare():
 	curr_scare.queue_free()
 	curr_scare = null
 
+func _process(delta):
 
-func _process(delta: float) -> void:
 	if scare_present:
 		Global.fear_meter = min(
 			Global.fear_meter + drain_rate * delta,
 			100.0
 		)
+
 		Global.relax_meter = max(
 			Global.relax_meter - drain_rate * delta,
 			0.0
 		)
-		relax.emit(Global.relax_meter)
-		fear.emit(Global.fear_meter)
+
+		if Global.relax_meter <= 20:
+			Global.fear_meter = min(
+				Global.fear_meter + anxious_drain * delta,
+				100.0
+			)
+
+	else:
+		if Global.relax_meter > 50.0:
+			Global.relax_meter = min(
+				Global.relax_meter + drain_rate * delta,
+				100.0
+			)
+		print("Relax:", Global.relax_meter)
+
+		if Global.relax_meter >= 50:
+			Global.fear_meter = max(
+				Global.fear_meter - anxious_drain * delta,
+				0.0
+			)
+
+	relax.emit(Global.relax_meter)
+	fear.emit(Global.fear_meter)
+
+	if Global.fear_meter >= 100.0:
+		level_fail()
+
 
 func level_fail():
-	if Global.fear_meter == 100.0:
-		hud._show_msg("sooo scarredd !!!! ahhh",3.0)
+	hud._show_msg("sooo scarredd !!!! ahhh",3.0)

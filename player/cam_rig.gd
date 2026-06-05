@@ -18,6 +18,8 @@ var og_pos : Vector3
 
 
 func _ready() -> void:
+	#flashlight.light_projector = texture
+
 	# jumpscare occured signal form the event manager to enable cam shake
 	if event_manager:
 		event_manager.jumpscare_triggered.connect(_on_jumpscare)
@@ -36,11 +38,13 @@ func _input(event: InputEvent) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			if !Global.blanket_visited:
-					rotation.y += -event.relative.x * cam_sense
-					rotation.y = clamp(rotation.y, deg_to_rad(-50), deg_to_rad(60))
-					rotation.x = clamp(rotation.x, deg_to_rad(-50), deg_to_rad(60))
+				rotation.y += -event.relative.x * cam_sense
+				rotation.x += -event.relative.y * cam_sense
+				rotation.y = clamp(rotation.y, deg_to_rad(-50), deg_to_rad(60))
+				rotation.x = clamp(rotation.x, deg_to_rad(-50), deg_to_rad(60))
 			else:
 				rotation.y += -event.relative.x * cam_sense
+				rotation.x += -event.relative.y * cam_sense
 				rotation.y = clamp(rotation.y, deg_to_rad(-50), deg_to_rad(60))
 				rotation.x = clamp(rotation.x, deg_to_rad(-50), deg_to_rad(60))
 
