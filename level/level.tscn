@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://crl0rk672ig4a" path="res://player/player.tscn" id="4_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://bqbrol6t6v1ar" path="res://hud/hud.tscn" id="4_vkbyq"]
 [ext_resource type="Script" uid="uid://ig43uu6fqcl8" path="res://level/event_manager.gd" id="6_44x8d"]
-[ext_resource type="AudioStream" uid="uid://bl6m0kwqsieon" path="res://assets/audio/bedroom-ambience.mp3" id="6_ivpvi"]
-[ext_resource type="AudioStream" uid="uid://dp1wcwv2jfmiu" path="res://assets/audio/gasp.mp3" id="7_ivpvi"]
+[ext_resource type="AudioStream" uid="uid://bl6m0kwqsieon" path="res://assets/audio/ambience/bedroom-ambience.mp3" id="6_ivpvi"]
+[ext_resource type="AudioStream" uid="uid://dp1wcwv2jfmiu" path="res://assets/audio/gasp/gasp.mp3" id="7_ivpvi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7lnir"]
 sky_top_color = Color(0.053486228, 0.07382905, 0.15864122, 1)

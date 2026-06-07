@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://28kjj47ty4f6"]
 
 [ext_resource type="Script" uid="uid://do1dax0k86pwn" path="res://hud/start menu/start_menu.gd" id="1_inc11"]
-[ext_resource type="Texture2D" uid="uid://bjhw3t71msdr1" path="res://icon.svg" id="3_kfrex"]
 
 [node name="start menu" type="Node3D" unique_id=506519926]
 script = ExtResource("1_inc11")
@@ -14,13 +13,14 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="start_game" type="TextureButton" parent="CanvasLayer/start_menu_cont" unique_id=916850987]
+[node name="start_game" type="Button" parent="CanvasLayer/start_menu_cont" unique_id=905760453]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 21.0
-offset_right = 169.0
-offset_bottom = 149.0
-texture_normal = ExtResource("3_kfrex")
-texture_pressed = ExtResource("3_kfrex")
+offset_left = 845.0
+offset_top = 264.0
+offset_right = 1080.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 43
+text = "Start game
+"
 
 [connection signal="pressed" from="CanvasLayer/start_menu_cont/start_game" to="." method="_on_start_game_pressed"]

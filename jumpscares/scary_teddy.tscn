@@ -5,6 +5,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lal3o"]
 
 [node name="scary_teddy" type="Node3D" unique_id=715728569]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
 script = ExtResource("1_5mft2")
 
 [node name="bear" type="MeshInstance3D" parent="." unique_id=682717899]

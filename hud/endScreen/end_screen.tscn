@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dl8fskvslnkoo"]
+
+[ext_resource type="Script" uid="uid://i4us2sc03u1g" path="res://hud/endScreen/end_screen.gd" id="1_c76pq"]
+
+[node name="end_screen" type="Node2D" unique_id=1629128145]
+script = ExtResource("1_c76pq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1610278019]
+offset_right = 1286.0
+offset_bottom = 548.0
+
+[node name="msg" type="Label" parent="VBoxContainer" unique_id=1430679421]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 42
+text = "Night lost !!!! 
+Momm come save me 
+I am scared!!!
+There is something here !!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="Button" parent="VBoxContainer" unique_id=1654160324]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/restart" unique_id=681719357]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = -9.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 137
+text = "Restart
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]

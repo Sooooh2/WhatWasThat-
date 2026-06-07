@@ -34,8 +34,9 @@ var scare_scenes = {
 var curr_scare = null
 var prev_scare = null
 var scare_present := false
-var drain_rate := 5.0
-var anxious_drain := 10.0
+var drain_rate := 1.0
+var anxious_drain := 5.0
+var first_scare := false
 
 @onready var player_gasp: AudioStreamPlayer3D = $"../player_gasp"
 @onready var hud: Control = $"../CanvasLayer/hud"
@@ -75,16 +76,17 @@ func start_scare():
 	add_child(curr_scare)
 	player_gasp.play()
 	curr_scare.global_transform = marker.global_transform
-	
 	jumpscare_triggered.emit(0.03)
-	print(Global.fear_meter)
-
+	if !first_scare:
+		hud._show_msg("Turn flashlgiht on or look away or go inside blanket",4.0)
+	await get_tree().create_timer(4.0).timeout
+	# cam shake
+	first_scare = true
 	scare_present = true
 	print("scare started:", curr_scare)
 	await curr_scare.scare_fin
 	print("finished this:", curr_scare)
 	scare_present = false
-	print(Global.fear_meter)
 	prev_scare = chosen_scare
 	curr_scare.queue_free()
 	curr_scare = null
@@ -114,9 +116,8 @@ func _process(delta):
 				Global.relax_meter + drain_rate * delta,
 				100.0
 			)
-		print("Relax:", Global.relax_meter)
 
-		if Global.relax_meter >= 50:
+		if Global.relax_meter >= 10:
 			Global.fear_meter = max(
 				Global.fear_meter - anxious_drain * delta,
 				0.0
@@ -131,3 +132,6 @@ func _process(delta):
 
 func level_fail():
 	hud._show_msg("sooo scarredd !!!! ahhh",3.0)
+	await get_tree().create_timer(3.0).timeout
+	get_tree().change_scene_to_file("res://endScreen/end_screen.tscn")
+	
