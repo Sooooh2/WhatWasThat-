@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://dlmr2g7fo033s" path="res://level/level.gd" id="1_qohg2"]
 [ext_resource type="PackedScene" uid="uid://crl0rk672ig4a" path="res://player/player.tscn" id="4_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://bqbrol6t6v1ar" path="res://hud/hud.tscn" id="4_vkbyq"]
+[ext_resource type="PackedScene" uid="uid://bjn510bceh888" path="res://jumpscares/cupboard/above_cupboard.tscn" id="5_0v1st"]
+[ext_resource type="PackedScene" uid="uid://nuytqyfaw78f" path="res://jumpscares/corner/in_corner.tscn" id="6_6gtgk"]
 [ext_resource type="Script" uid="uid://ig43uu6fqcl8" path="res://level/event_manager.gd" id="6_44x8d"]
 [ext_resource type="AudioStream" uid="uid://bl6m0kwqsieon" path="res://assets/audio/ambience/bedroom-ambience.mp3" id="6_ivpvi"]
 [ext_resource type="AudioStream" uid="uid://dp1wcwv2jfmiu" path="res://assets/audio/gasp/gasp.mp3" id="7_ivpvi"]
@@ -30,7 +32,7 @@ adjustment_contrast = 1.07
 [node name="level" type="Node3D" unique_id=677059764]
 script = ExtResource("1_qohg2")
 
-[node name="bedroom" parent="." unique_id=910181481 instance=ExtResource("1_7lnir")]
+[node name="bedroom" parent="." unique_id=1796675119 instance=ExtResource("1_7lnir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00036031008, -0.0072535276, 0.00019621849)
 
 [node name="player" parent="." unique_id=323690231 instance=ExtResource("4_ktfr2")]
@@ -57,12 +59,16 @@ distance_fade_enabled = true
 omni_range = 2.6257808
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="env" unique_id=1981660340]
-transform = Transform3D(1, 0, 0, 0, 0.94125855, 0.33768675, 0, -0.33768675, 0.94125855, 1.548541, 0.91784203, 0.4947239)
+transform = Transform3D(1, 0, 0, 0, 0.94125855, 0.33768675, 0, -0.33768675, 0.94125855, 0.25621486, 0.91784203, 1.3329054)
 light_color = Color(0.15022907, 0.21676457, 0.30236703, 1)
-light_energy = 0.2
+light_energy = 14.83
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 2.83
 shadow_enabled = true
+shadow_normal_bias = 10.0
+shadow_blur = 10.0
 distance_fade_enabled = true
-omni_range = 6.7545533
+distance_fade_begin = 0.0
 
 [node name="lamp" type="OmniLight3D" parent="env" unique_id=1938144192]
 transform = Transform3D(-0.71958125, 0.5523353, -0.42086643, -0.49710202, 0.013457841, 0.86758775, 0.48486328, 0.83351344, 0.26488298, -0.7791225, 0.45434588, -1.3183987)
@@ -97,11 +103,19 @@ transform = Transform3D(0.9322859, 0, 0.3617222, 0, 1, 0, -0.3617222, 0, 0.93228
 [node name="chairPoint" type="Marker3D" parent="scarePoints" unique_id=649825904]
 transform = Transform3D(0.06499999, 0, -0.09179869, 0, 0.047, 0, 0.1125833, 0, 0.052999996, 0.405, 0.6, 0.374)
 
+[node name="above_cupboard" parent="scarePoints" unique_id=755075054 instance=ExtResource("5_0v1st")]
+transform = Transform3D(0.048624452, -0.0042521944, 0.016997075, -0.0017431804, -0.025452133, -0.018390503, 0.018768199, 0.008652561, -0.045743972, -0.26487672, 1.1221001, 0.5327219)
+visible = false
+
 [node name="cupboardPoint" type="Marker3D" parent="scarePoints" unique_id=248821416]
-transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0, 1.0757712, 0.58414966)
+transform = Transform3D(0.0484846, -0.0042183134, 0.016948204, -0.0017381725, -0.025249308, -0.018337604, 0.018714227, 0.008583608, -0.0456124, -0.265, 1.122, 0.533)
+
+[node name="in_corner" parent="scarePoints" unique_id=2071152745 instance=ExtResource("6_6gtgk")]
+transform = Transform3D(0.67, 0, 0, 0, 0.908, 0, 0, 0, 0.632, 0.8464864, 0.88252974, -1.2719542)
+visible = false
 
 [node name="cornerPoint" type="Marker3D" parent="scarePoints" unique_id=622148207]
-transform = Transform3D(0.12000001, 0, 0, 0, 0.040000003, 0, 0, 0, 0.15000002, 0.6525221, 0.5737698, 0.82477295)
+transform = Transform3D(0.905, 0, 0, 0, 1.413, 0, 0, 0, 0.632, 0.846, 0.574, -1.272)
 
 [node name="bedPoint" type="Marker3D" parent="scarePoints" unique_id=2028994458]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.093483195, 0.30982232, -0.606416)
@@ -119,3 +133,7 @@ volume_db = -0.8
 
 [node name="player_gasp" type="AudioStreamPlayer3D" parent="." unique_id=1213047990]
 stream = ExtResource("7_ivpvi")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2056558510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1857367, 0)
+visible = false

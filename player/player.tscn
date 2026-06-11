@@ -25,3 +25,13 @@ spot_angle = 35.81683
 
 [node name="click" type="AudioStreamPlayer3D" parent="." unique_id=90876524]
 stream = ExtResource("3_g1dw6")
+
+[node name="focus" type="RichTextLabel" parent="." unique_id=1944698516]
+visible = false
+offset_left = 1219.0
+offset_top = 769.0
+offset_right = 1726.0
+offset_bottom = 853.0
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "press \"[i][b] i [/b] [/i]\" to focus on the photo"

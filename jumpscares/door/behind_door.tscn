@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cw18dy0ybdehu"]
 
-[ext_resource type="Script" uid="uid://c4tuvclqk0aq2" path="res://jumpscares/behind_door.gd" id="1_1mj8q"]
+[ext_resource type="Script" uid="uid://c4tuvclqk0aq2" path="res://jumpscares/door/behind_door.gd" id="1_1mj8q"]
 [ext_resource type="ArrayMesh" uid="uid://dggsv5nc6nj2v" path="res://assets/model/bath_door_peer.tres" id="2_1mj8q"]
 
 [node name="behind_door" type="Node3D" unique_id=665309335]

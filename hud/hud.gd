@@ -1,6 +1,7 @@
 extends Control
 
 signal menu_pressed
+signal continue_pressed
 
 @onready var message: Label = $message
 @onready var flash_battery: TextureProgressBar = $flashlight/flash_battery
@@ -23,9 +24,14 @@ func _ready() -> void:
 		event_manager.fear.connect(_on_fear_changed)
 		event_manager.relax.connect(_on_relax_changed)
 
-# open pause menu 
-func _on_menu_pressed() -> void:
-	menu_pressed.emit()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		menu_pressed.emit()
+	if event.is_action_pressed("continue"):
+		continue_pressed.emit()
+
+
 
 
 # show messages on the screen 
@@ -51,3 +57,11 @@ func _on_fear_changed(value):
 
 func _on_relax_changed(value):
 	$VBoxContainer/relaxbar.value = value
+
+# open pause menu 
+func _on_menu_pressed() -> void:
+	menu_pressed.emit()
+
+
+func _on_continue_pressed() -> void:
+	continue_pressed.emit()

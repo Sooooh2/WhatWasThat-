@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1ssw1gvxq0fn"]
 
-[ext_resource type="Script" uid="uid://ct55flux4m8nk" path="res://jumpscares/on_chair.gd" id="1_nmsan"]
+[ext_resource type="Script" uid="uid://ct55flux4m8nk" path="res://jumpscares/chair/on_chair.gd" id="1_nmsan"]
 [ext_resource type="ArrayMesh" uid="uid://eb54lpemmnvt" path="res://assets/model/on_chair.tres" id="3_g2xm1"]
 
 [node name="on_chair" type="Node3D" unique_id=1174076433]

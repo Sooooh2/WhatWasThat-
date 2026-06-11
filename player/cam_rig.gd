@@ -6,15 +6,18 @@ extends Node3D
 @export var shake_strength := 0.0
 @export var shake_fade := 5.0
 @export var cam_sense := 0.001
-@export var maxZoom = 20.0
-@export var minZoom = 90.0
+@export var minZoom = 20.0
+@export var maxZoom = 90.0
 @onready var click: AudioStreamPlayer3D = $"../click"
 @onready var flashlight: SpotLight3D = $flashlight
+@onready var photo_manager = get_node_or_null("../../photo_manager")
 
 var drag_distance := 0.0
 var drag_plane : Plane
 var og_pos : Vector3
 var og_rot : Vector3
+var dragging := false
+
 
 func _ready() -> void:
 	# jumpscare occured signal form the event manager to enable cam shake
@@ -55,23 +58,31 @@ func _input(event: InputEvent) -> void:
 			if result : 
 				var obj = result.collider
 				if obj.has_method("inspect"):
+					$"../focus".visible = true
 					obj.player = player
 					obj.inspect()
 					Global.dragged_obj = obj.get_parent()
 					print(Global.dragged_obj)
 					drag_plane = Plane(cam.global_transform.basis.z,Global.dragged_obj.global_position)
 					drag_photo()
-		 
+					
+
 		if Input.is_action_just_released("interact"):
 			Global.dragging = false
+			$"../focus".visible = false
+
 			Global.dragged_obj = null
-	# zoom in and out logic  
+			
+	if event.is_action_pressed("examine_toggle"):
+		photo_manager.toggle_examine()
+
+	## zoom in and out logic  
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			cam.fov = clamp(cam.fov - 1.0, minZoom, maxZoom)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			cam.fov = clamp(cam.fov + 1.0, minZoom, maxZoom)
-
+#
 
 func _process(delta: float) -> void:
 	# cam shake for when there is jumpscare

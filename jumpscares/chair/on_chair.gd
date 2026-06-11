@@ -21,7 +21,7 @@ func _process(delta):
 	var cam = get_viewport().get_camera_3d()
 
 	var to_scare = (
-		$"man_above".global_position
+		$"man_sat".global_position
 		- cam.global_position
 	).normalized()
 
@@ -29,6 +29,6 @@ func _process(delta):
 
 	var dot = cam_forward.dot(to_scare)
 
-	if dot > required_dot:
-		$"man_above".visible = false
+	if dot > required_dot or Input.is_action_just_pressed("toggle_blanket"):
+		$"man_sat".visible = false
 		scare_fin.emit()

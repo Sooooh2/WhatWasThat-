@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bn1dgrhy0558j"]
+
+[ext_resource type="Texture2D" uid="uid://ub4ue4jfd1we" path="res://assets/ui/sdgfsszfsfasfas.png" id="1_wk16d"]
+
+[sub_resource type="SystemFont" id="SystemFont_6xtf3"]
+subpixel_positioning = 0
+
+[node name="pause_menu" type="Control" unique_id=2023621755]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=753486892]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 55.0
+offset_right = 1054.0
+offset_bottom = 595.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1182552071]
+layout_mode = 2
+texture = ExtResource("1_wk16d")
+region_rect = Rect2(400.9497, 220.32233, 768.796, 767.07776)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=2107902247]
+layout_mode = 2
+theme_override_constants/margin_left = 57
+theme_override_constants/margin_top = 41
+theme_override_constants/margin_right = 55
+theme_override_constants/margin_bottom = 55
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer" unique_id=805386526]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_6xtf3")
+theme_override_font_sizes/normal_font_size = 37
+bbcode_enabled = true
+text = "Audio level : 
+Press \"F\" to toggle flashlight.
+Press \"RMB\" to go inside blanket.
+Press \"ESC\" to close the game.
+
+sdfsdfsss
+fsdfsf
+asdfqwdf
+asffwf
+afafaqw
+asfasasf
+asfafasf
+asfafafa
+
+Return to Main Menu "

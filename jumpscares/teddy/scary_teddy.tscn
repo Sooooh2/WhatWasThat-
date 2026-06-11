@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2s702ijeomik"]
 
-[ext_resource type="Script" uid="uid://dfe50myvelk7q" path="res://jumpscares/scary_teddy.gd" id="1_5mft2"]
+[ext_resource type="Script" uid="uid://dfe50myvelk7q" path="res://jumpscares/teddy/scary_teddy.gd" id="1_5mft2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lal3o"]
 

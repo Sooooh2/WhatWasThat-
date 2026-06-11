@@ -1,26 +1,87 @@
-[gd_scene format=3 uid="uid://28kjj47ty4f6"]
+[gd_scene format=3 uid="uid://bs57kuba4hn6a"]
 
+[ext_resource type="Texture2D" uid="uid://bhpai1st86sb6" path="res://assets/ui/title.png" id="1_26y1w"]
 [ext_resource type="Script" uid="uid://do1dax0k86pwn" path="res://hud/start menu/start_menu.gd" id="1_inc11"]
 
-[node name="start menu" type="Node3D" unique_id=506519926]
+[node name="start_menu" type="Control" unique_id=1068472236]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_inc11")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1684988519]
-
-[node name="start_menu_cont" type="Control" parent="CanvasLayer" unique_id=1650731592]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="start_game" type="Button" parent="CanvasLayer/start_menu_cont" unique_id=905760453]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=460922219]
 layout_mode = 0
-offset_left = 845.0
-offset_top = 264.0
-offset_right = 1080.0
-offset_bottom = 331.0
-theme_override_font_sizes/font_size = 43
-text = "Start game
+offset_left = 179.0
+offset_top = -5.0
+offset_right = 1132.0
+offset_bottom = 919.0
+texture = ExtResource("1_26y1w")
+region_rect = Rect2(222.66357, 218.46361, 573.0773, 555.81586)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=547043907]
+layout_mode = 0
+offset_left = 1382.0
+offset_top = 319.0
+offset_right = 1848.0
+offset_bottom = 931.0
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=808726160]
+layout_mode = 2
+size_flags_vertical = 3
+text = "play"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=140874522]
+layout_mode = 2
+size_flags_vertical = 3
+text = "quit
 "
 
-[connection signal="pressed" from="CanvasLayer/start_menu_cont/start_game" to="." method="_on_start_game_pressed"]
+[node name="aboutMe" type="Button" parent="VBoxContainer" unique_id=1495657283]
+layout_mode = 2
+size_flags_vertical = 3
+text = "About developer"
+
+[node name="aboutmesect" type="MarginContainer" parent="." unique_id=1988443197]
+visible = false
+layout_mode = 0
+offset_left = 600.0
+offset_top = 482.0
+offset_right = 1272.0
+offset_bottom = 1021.0
+
+[node name="ColorRect" type="ColorRect" parent="aboutmesect" unique_id=156440703]
+layout_mode = 2
+color = Color(0.41568628, 0.41568628, 0.41568628, 0.7372549)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="aboutmesect" unique_id=55410997]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="aboutmesect/VBoxContainer" unique_id=1016989817]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.35
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "linkedin link 
+insta link 
+itchio link somethingg "
+scroll_active = false
+
+[node name="back" type="Button" parent="." unique_id=495707266]
+visible = false
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 482.0
+offset_right = 1272.0
+offset_bottom = 614.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.52
+text = "go back"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/aboutMe" to="." method="_on_about_me_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

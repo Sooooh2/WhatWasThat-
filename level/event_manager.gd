@@ -8,26 +8,26 @@ enum scares {
 	on_chair,
 	behind_door,
 	above_cupboard,
-	behind_bed,
-	scare_teddy,
+	#behind_bed,
+	#scare_teddy,
 	in_corner
 }
 
 var scare_scenes = {
-	scares.on_chair: preload("res://jumpscares/on_chair.tscn"),
-	scares.behind_door: preload("res://jumpscares/behind_door.tscn"),
-	scares.above_cupboard: preload("res://jumpscares/above_cupboard.tscn"),
-	scares.behind_bed: preload("res://jumpscares/behind_bed.tscn"),
-	scares.scare_teddy: preload("res://jumpscares/scary_teddy.tscn"),
-	scares.in_corner: preload("res://jumpscares/in_corner.tscn")
+	scares.on_chair: preload("res://jumpscares/chair/on_chair.tscn"),
+	scares.behind_door: preload("res://jumpscares/door/behind_door.tscn"),
+	scares.above_cupboard: preload("res://jumpscares/cupboard/above_cupboard.tscn"),
+	#scares.behind_bed: preload("res://jumpscares/behind_bed.tscn"),
+	#scares.scare_teddy: preload("res://jumpscares/scary_teddy.tscn"),
+	scares.in_corner: preload("res://jumpscares/corner/in_corner.tscn")
 }
 
 @onready var scare_points = {
 	scares.on_chair: $"../scarePoints/chairPoint",
 	scares.behind_door: $"../scarePoints/cornerPoint",
 	scares.above_cupboard: $"../scarePoints/cupboardPoint",
-	scares.behind_bed: $"../scarePoints/bedPoint",
-	scares.scare_teddy: $"../scarePoints/teddyPoint",
+	#scares.behind_bed: $"../scarePoints/bedPoint",
+	#scares.scare_teddy: $"../scarePoints/teddyPoint",
 	scares.in_corner: $"../scarePoints/cornerPoint"
 }
 
@@ -54,9 +54,14 @@ func _ready():
 
 func event_loop():
 	while true:
+		while get_tree().paused:
+			await get_tree().process_frame
 		await get_tree().create_timer(
 			randf_range(min_wait_time, max_wait_time)
 		).timeout
+		if get_tree().paused:
+			continue
+
 		await start_scare()
 
 

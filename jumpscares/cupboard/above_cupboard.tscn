@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjn510bceh888"]
 
-[ext_resource type="Script" uid="uid://bip41hh7a8slb" path="res://jumpscares/above_cupboard.gd" id="1_2a1jc"]
+[ext_resource type="Script" uid="uid://bip41hh7a8slb" path="res://jumpscares/cupboard/above_cupboard.gd" id="1_2a1jc"]
 [ext_resource type="ArrayMesh" uid="uid://dsus3x2y1ls4t" path="res://assets/model/on_cupboard.tres" id="3_r607j"]
 
 [node name="above_cupboard" type="Node3D" unique_id=755075054]

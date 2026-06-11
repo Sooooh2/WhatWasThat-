@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c4jmsg1m5v61e" path="res://hud/hud.gd" id="1_ks8t7"]
 [ext_resource type="Texture2D" uid="uid://bjhw3t71msdr1" path="res://icon.svg" id="1_nb4k0"]
+[ext_resource type="Texture2D" uid="uid://ub4ue4jfd1we" path="res://assets/ui/sdgfsszfsfasfas.png" id="3_fjv1a"]
 [ext_resource type="Texture2D" uid="uid://clmh5jgxe1cxf" path="res://assets/ui/batterychaarged1.png" id="3_svhta"]
 [ext_resource type="Texture2D" uid="uid://cgvc7g23g74tx" path="res://assets/ui/battery0charged.png" id="4_fjv1a"]
 [ext_resource type="Texture2D" uid="uid://cg7uhctw6s5x" path="res://assets/ui/batterycharged.png" id="5_0ivg5"]
 
-[sub_resource type="SystemFont" id="SystemFont_2gk58"]
+[sub_resource type="SystemFont" id="SystemFont_fjv1a"]
 subpixel_positioning = 0
 
 [node name="hud" type="Control" unique_id=1347197611]
@@ -35,47 +36,66 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 25
 
-[node name="pause_menu" type="Control" parent="." unique_id=1437686329]
+[node name="menu_cont" type="Control" parent="." unique_id=1319775477]
 visible = false
+z_index = 500
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MarginContainer" type="MarginContainer" parent="pause_menu" unique_id=1792796518]
+[node name="MarginContainer2" type="MarginContainer" parent="menu_cont" unique_id=1468891760]
 layout_mode = 0
 offset_left = 515.0
 offset_top = 55.0
 offset_right = 1054.0
 offset_bottom = 595.0
+mouse_filter = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="pause_menu/MarginContainer" unique_id=1035367032]
+[node name="NinePatchRect" type="NinePatchRect" parent="menu_cont/MarginContainer2" unique_id=1530079941]
 layout_mode = 2
-theme_override_fonts/normal_font = SubResource("SystemFont_2gk58")
-theme_override_font_sizes/normal_font_size = 37
+texture = ExtResource("3_fjv1a")
+region_rect = Rect2(400.9497, 220.32233, 768.796, 767.07776)
+
+[node name="MarginContainer" type="MarginContainer" parent="menu_cont/MarginContainer2" unique_id=1977756226]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 57
+theme_override_constants/margin_top = 41
+theme_override_constants/margin_right = 68
+theme_override_constants/margin_bottom = 55
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu_cont/MarginContainer2/MarginContainer" unique_id=595877492]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="menu_cont/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1455307640]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_fjv1a")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
 text = "Audio level : 
+Press [font_size=25][i] \" F \" [/i][/font_size] to toggle flashlight.
+Press [i]\"RMB\" [/i]to go inside blanket.
+Press \"ESC\" to close the game.
+
+sdfsdfsss
+fsdfsf
+asdfqwdf
+asffwf
+afafaqw
+asfasasf
+asfafasf
+asfafafa
 
 Return to Main Menu "
 
-[node name="menu_cont" type="Control" parent="." unique_id=1319775477]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MarginContainer" type="MarginContainer" parent="menu_cont" unique_id=210239552]
-layout_mode = 0
-offset_left = 243.315
-offset_top = 68.0
-offset_right = 721.31506
-offset_bottom = 601.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="menu_cont/MarginContainer" unique_id=12684690]
+[node name="continue" type="Button" parent="menu_cont/MarginContainer2/MarginContainer/VBoxContainer" unique_id=439741210]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 29
-text = "Press \"F\" to toggle flashlight.
-Press \"RMB\" to go inside blanket.
-Press \"ESC\" to close the game.
-"
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+text = "Continue"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1848402781]
 position = Vector2(164.79367, 802.019)
@@ -146,14 +166,6 @@ fill_mode = 3
 texture_under = ExtResource("4_fjv1a")
 texture_progress = ExtResource("5_0ivg5")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=928989045]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=451383410]
 layout_mode = 1
 anchors_preset = 15
@@ -177,3 +189,4 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="menu_cont/MarginContainer2/MarginContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]

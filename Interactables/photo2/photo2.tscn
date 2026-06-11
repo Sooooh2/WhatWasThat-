@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6gpkorslf3eu"]
 
 [ext_resource type="Script" uid="uid://ex8ru721ef17" path="res://Interactables/photo2/photo_2.gd" id="1_21wtr"]
-[ext_resource type="Texture2D" uid="uid://cqr3c1qyvse1n" path="res://assets/photos/photo1.png" id="1_emm2a"]
+[ext_resource type="Texture2D" uid="uid://cqr3c1qyvse1n" path="res://assets/photos/photo1.png" id="2_21wtr"]
 [ext_resource type="Script" uid="uid://h5tde28fj0ie" path="res://Interactables/photo2/photo_static_2.gd" id="3_21wtr"]
 [ext_resource type="Shader" uid="uid://bcdxv5rh08jki" path="res://assets/shaders/border.gdshader" id="3_lr7ww"]
 
@@ -23,7 +23,7 @@ script = ExtResource("1_21wtr")
 [node name="photo2" type="Sprite3D" parent="." unique_id=339765075]
 shaded = true
 alpha_cut = 3
-texture = ExtResource("1_emm2a")
+texture = ExtResource("2_21wtr")
 
 [node name="photo_collider2" type="StaticBody3D" parent="." unique_id=1248429154]
 script = ExtResource("3_21wtr")
