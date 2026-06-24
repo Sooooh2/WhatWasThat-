@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://8f3gdt4xgl57"]
 
 [ext_resource type="Script" uid="uid://besgr46tp6ch6" path="res://Interactables/photo1/photo.gd" id="1_gjli6"]
-[ext_resource type="Script" uid="uid://dcb0ejdmi0xi5" path="res://Interactables/photo1/photo_static.gd" id="2_bwksi"]
 [ext_resource type="Texture2D" uid="uid://gdttpnfplpj" path="res://assets/photos/bedroom.png" id="2_ey6ry"]
+[ext_resource type="Script" uid="uid://c0kte2at77nay" path="res://Interactables/photo1/photo_collider.gd" id="3_k1phv"]
 [ext_resource type="Shader" uid="uid://bcdxv5rh08jki" path="res://assets/shaders/border.gdshader" id="4_e0biy"]
+[ext_resource type="Script" uid="uid://dondcjhyri7nn" path="res://Interactables/photo1/focus_1.gd" id="5_k1phv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gjli6"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8e0tk"]
 size = Vector3(19.126587, 1.4186668, 11.047852)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ey6ry"]
@@ -16,6 +17,9 @@ shader = ExtResource("4_e0biy")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/thickness = 0.01
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gretj"]
+size = Vector3(3.55719, 2.025055, 1)
+
 [node name="Photo1" type="Node3D" unique_id=1305046314 groups=["interactable"]]
 transform = Transform3D(0.44778475, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_gjli6")
@@ -25,15 +29,29 @@ shaded = true
 alpha_cut = 3
 texture = ExtResource("2_ey6ry")
 
-[node name="photo_collider" type="StaticBody3D" parent="." unique_id=354994141]
-script = ExtResource("2_bwksi")
+[node name="photo_collider" type="StaticBody3D" parent="photo1" unique_id=1125851739]
+collision_mask = 0
+script = ExtResource("3_k1phv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="photo_collider" unique_id=1013298179]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="photo1/photo_collider" unique_id=2096904360]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.018493652, -0.033085346, -0.01741232)
-shape = SubResource("BoxShape3D_gjli6")
+shape = SubResource("BoxShape3D_8e0tk")
 
-[node name="outline" type="MeshInstance3D" parent="." unique_id=2000748282]
+[node name="outline" type="MeshInstance3D" parent="photo1/photo_collider" unique_id=2000748282]
 transform = Transform3D(19.373255, 0, 0, 0, 11.119271, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_ey6ry")
 surface_material_override/0 = SubResource("ShaderMaterial_e0biy")
+
+[node name="focuses" type="Node3D" parent="photo1" unique_id=1320100534]
+
+[node name="focus1" type="Area3D" parent="photo1/focuses" unique_id=1074424240 groups=["focus"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.185043, -3.7883775, 1.129564)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("5_k1phv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="photo1/focuses/focus1" unique_id=73186948]
+transform = Transform3D(2.485, 0, 0, 0, 2.485, 0, 0, 0, 2.485, 0.1121521, 1.2736304, 0)
+shape = SubResource("BoxShape3D_gretj")
+debug_color = Color(0, 0.5711929, 0.6649203, 1)

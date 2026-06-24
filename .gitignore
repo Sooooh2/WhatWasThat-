@@ -5,3 +5,5 @@ export_presets.cfg
 *.blend1
 *.blend2
 *.blend3
+
+/assets/ui/*

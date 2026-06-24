@@ -16,7 +16,6 @@ func _ready() -> void:
 	og_pos = photo2.global_position
 
 
-
 func inspect():
 	player.inspect_obj(self)
 	photo_manager.curr_photo = self
@@ -24,6 +23,7 @@ func inspect():
 
 func _process(delta: float) -> void:
 	outline_2.visible = Global.dragged_obj == get_parent()
+
 
 func toggle_examine():
 	examining = !examining

@@ -1,10 +1,15 @@
 [gd_scene format=4 uid="uid://bwfcr8cydw127"]
 
 [ext_resource type="PackedScene" uid="uid://c17wlfhr3a8g8" path="res://blender-things/bedroom.blend" id="1_kpde0"]
+[ext_resource type="Texture2D" uid="uid://cgx6yewu431r6" path="res://blender-things/hdhx.png" id="2_1hugx"]
 [ext_resource type="ArrayMesh" uid="uid://r6vckkfao1um" path="res://assets/model/behind_bed.tres" id="2_tx6if"]
 [ext_resource type="ArrayMesh" uid="uid://bi5dhbvqqu2wb" path="res://assets/model/in_corner.tres" id="3_1hugx"]
 [ext_resource type="ArrayMesh" uid="uid://eb54lpemmnvt" path="res://assets/model/on_chair.tres" id="3_lv0sd"]
 [ext_resource type="ArrayMesh" uid="uid://dsus3x2y1ls4t" path="res://assets/model/on_cupboard.tres" id="4_1hugx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4cnn"]
+albedo_texture = ExtResource("2_1hugx")
+uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f64ii"]
 resource_name = "monster"
@@ -45,72 +50,80 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7fn6m")
 
-[node name="bedroom" unique_id=1113860827 instance=ExtResource("1_kpde0")]
+[node name="bedroom" unique_id=963489676 instance=ExtResource("1_kpde0")]
 
-[node name="floor" parent="." index="0" unique_id=1112256135]
+[node name="floor" parent="." index="0" unique_id=112055923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0060106516, 0.034324113, 0.0146769285)
+surface_material_override/0 = SubResource("StandardMaterial3D_i4cnn")
 
-[node name="roof" parent="." index="2" unique_id=1075394299]
+[node name="roof" parent="." index="2" unique_id=882626634]
 transform = Transform3D(-1.1094408, -0.0018329102, 0, 0.0020332036, -1.0001484, 0, 0, 0, 1.1010088, 0.0039014816, 1.3712645, -0.24008396)
+visible = false
 
-[node name="win-wall" parent="." index="4" unique_id=1484746957]
+[node name="win-wall" parent="." index="4" unique_id=1939415766]
 transform = Transform3D(-1, 3.4957693e-14, 0, -3.4957693e-14, -1, 0, 0, 0, 1, 2.0113845, -0.017031372, 0)
 
-[node name="walls_001" parent="." index="5" unique_id=451254858]
+[node name="walls_001" parent="." index="5" unique_id=768121501]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0544192, -1.9816663, -0.0067546368, -0.01186049)
 
-[node name="walls_003" parent="." index="7" unique_id=562680177]
+[node name="walls_003" parent="." index="7" unique_id=537971055]
 visible = false
 
-[node name="tablefan-blade" parent="table-area/table-fan" parent_id_path=PackedInt32Array(239108353) index="0" unique_id=54986833]
+[node name="tablefan-blade" parent="table-area/table-fan" parent_id_path=PackedInt32Array(523613232) index="0" unique_id=1656347916]
 transform = Transform3D(-14.884008, 57.441135, -6.1179047, -999.8731, -0.8690448, -0.7248774, -5.7020774, 2.451727, 143.07845, 0.47730827, 333.4909, -0.0896225)
 
-[node name="bedframe" parent="bed-area" parent_id_path=PackedInt32Array(1444470342) index="1" unique_id=190782839]
-transform = Transform3D(0.36331022, 0, 0, 0, 0.030965542, 0, 0, 0, 0.48161805, 0.048713565, 0.11377028, -0.16085982)
-
-[node name="clock" parent="bed-area" parent_id_path=PackedInt32Array(1444470342) index="6" unique_id=1052720373]
+[node name="clock" parent="bed-area" parent_id_path=PackedInt32Array(665231386) index="5" unique_id=1439615917]
 transform = Transform3D(-0.011265974, -0.009163657, -0.0057121976, 0, 0.0013612272, -0.041454323, 0.040332507, -0.0025596602, -0.0015955735, -0.28494656, 0.33720213, -0.031314194)
 
-[node name="lamp-bulb" parent="bed-area/lamp" parent_id_path=PackedInt32Array(200674444) index="0" unique_id=337869208]
+[node name="lamp-bulb" parent="bed-area/lamp" parent_id_path=PackedInt32Array(622736300) index="0" unique_id=1420079588]
 visible = false
 
-[node name="nin-switch" parent="bed-area" parent_id_path=PackedInt32Array(1444470342) index="8" unique_id=1335307574]
+[node name="nin-switch" parent="bed-area" parent_id_path=PackedInt32Array(665231386) index="7" unique_id=375708775]
 transform = Transform3D(0.016144428, 0, 0.06575766, 0, -0.005212935, 0, -0.027513431, 0, 0.038585514, -0.2806151, 0.29989454, 0.03989297)
 
-[node name="Point_002" parent="." index="11" unique_id=157412016]
+[node name="bed_001" parent="." index="11" unique_id=1865904803]
+transform = Transform3D(0.27250803, 0, 0, 0, 0.27250803, 0, 0, 0, 0.27250803, -0.4318322, 0.29893467, -0.80367714)
+
+[node name="frame" parent="." index="12" unique_id=904127894]
+transform = Transform3D(0.27250803, 0, 0, 0, 0.27250803, 0, 0, 0, 0.27250803, -0.4318322, 0.29893467, -0.80367714)
+
+[node name="sheet" parent="." index="13" unique_id=638259862]
+transform = Transform3D(0.34920993, 0, 0, 0, 0.27250803, 0, 0, 0, 0.27250803, -0.6196764, 0.29893467, -0.80367714)
+
+[node name="Point_002" parent="." index="15" unique_id=1038082017]
 visible = false
 
-[node name="Point" parent="." index="12" unique_id=1445277794]
+[node name="Point" parent="." index="16" unique_id=1980941173]
 visible = false
 
-[node name="Point_001" parent="." index="13" unique_id=2034507123]
+[node name="Point_001" parent="." index="17" unique_id=1633347320]
 visible = false
 
-[node name="Point_003" parent="." index="14" unique_id=363028548]
+[node name="Point_003" parent="." index="18" unique_id=110342399]
 visible = false
 
-[node name="bathroom-door" parent="." index="15" unique_id=466275219]
+[node name="bathroom-door" parent="." index="19" unique_id=796516868]
 transform = Transform3D(0.5377811, 0, 0.8430847, 0, 1, 0, -0.8430847, 0, 0.5377811, -1.0777044, 0.6174994, 0.702521)
 
-[node name="bath-door" parent="bathroom-door" index="0" unique_id=1067937080]
+[node name="bath-door" parent="bathroom-door" index="0" unique_id=465470066]
 transform = Transform3D(0.029305903, 0, -0.09710586, 0, 0.5482173, 0, 0.012257578, 0, 0.2321645, 0.039244056, 0, 0.08941716)
 
-[node name="bath_door_peer" parent="jumpscare" parent_id_path=PackedInt32Array(1396356042) index="0" unique_id=1841376545]
+[node name="bath_door_peer" parent="jumpscare" parent_id_path=PackedInt32Array(83199099) index="0" unique_id=921333228]
 visible = false
 mesh = SubResource("ArrayMesh_i4cnn")
 
-[node name="behind_bed" parent="jumpscare" parent_id_path=PackedInt32Array(1396356042) index="1" unique_id=457802401]
+[node name="behind_bed" parent="jumpscare" parent_id_path=PackedInt32Array(83199099) index="1" unique_id=1279784182]
 visible = false
 mesh = ExtResource("2_tx6if")
 
-[node name="in_corner" parent="jumpscare" parent_id_path=PackedInt32Array(1396356042) index="2" unique_id=1219955089]
+[node name="in_corner" parent="jumpscare" parent_id_path=PackedInt32Array(83199099) index="2" unique_id=1310153949]
 visible = false
 mesh = ExtResource("3_1hugx")
 
-[node name="on_chair" parent="jumpscare" parent_id_path=PackedInt32Array(1396356042) index="3" unique_id=1093903679]
+[node name="on_chair" parent="jumpscare" parent_id_path=PackedInt32Array(83199099) index="3" unique_id=710578378]
 visible = false
 mesh = ExtResource("3_lv0sd")
 
-[node name="on_cupboard" parent="jumpscare" parent_id_path=PackedInt32Array(1396356042) index="4" unique_id=2017238694]
+[node name="on_cupboard" parent="jumpscare" parent_id_path=PackedInt32Array(83199099) index="4" unique_id=974835970]
 visible = false
 mesh = ExtResource("4_1hugx")

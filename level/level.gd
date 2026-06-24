@@ -36,8 +36,6 @@ func _input(event: InputEvent) -> void:
 		menu.visible = !menu.visible
 
 
-
-
 func _on_menu_pressed() -> void:
 	get_tree().paused = true
 	print("Paused:", get_tree().paused)

@@ -62,14 +62,14 @@ func _input(event: InputEvent) -> void:
 					obj.player = player
 					obj.inspect()
 					Global.dragged_obj = obj.get_parent()
-					print(Global.dragged_obj)
 					drag_plane = Plane(cam.global_transform.basis.z,Global.dragged_obj.global_position)
 					drag_photo()
 					
 
+
 		if Input.is_action_just_released("interact"):
 			Global.dragging = false
-			$"../focus".visible = false
+			#$"../focus".visible = false
 
 			Global.dragged_obj = null
 			
@@ -82,7 +82,6 @@ func _input(event: InputEvent) -> void:
 			cam.fov = clamp(cam.fov - 1.0, minZoom, maxZoom)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			cam.fov = clamp(cam.fov + 1.0, minZoom, maxZoom)
-#
 
 func _process(delta: float) -> void:
 	# cam shake for when there is jumpscare
@@ -97,13 +96,16 @@ func _process(delta: float) -> void:
 	else:
 		cam.position = og_pos
 	# drag photos along a 2d plane - so only left/right and up/down
-	if Global.dragging and Global.dragged_obj:
-		var mouse_pos = get_viewport().get_mouse_position()
-		var origin = cam.project_ray_origin(mouse_pos)
-		var dir = cam.project_ray_normal(mouse_pos)
-		var intersection = drag_plane.intersects_ray(origin,dir)
-		if intersection: 
-			Global.dragged_obj.global_position = intersection
+	if Global.dragged_obj:
+		
+		if Global.dragging:
+			var mouse_pos = get_viewport().get_mouse_position()
+			var origin = cam.project_ray_origin(mouse_pos)
+			var dir = cam.project_ray_normal(mouse_pos)
+			var intersection = drag_plane.intersects_ray(origin,dir)
+			if intersection: 
+				Global.dragged_obj.global_position = intersection
+	check_focus_hover()
 
 
 func drag_photo():
@@ -113,3 +115,20 @@ func drag_photo():
 func _on_jumpscare(intensity):
 	# function for when signal is called from the event manager
 	shake_strength = intensity
+
+
+func check_focus_hover():
+	var mouse = get_viewport().get_mouse_position()
+	var origin = cam.project_ray_origin(mouse)
+	var end = origin + cam.project_ray_normal(mouse) * 1000
+	
+	var query = PhysicsRayQueryParameters3D.create(origin,end)
+	var result = get_world_3d().direct_space_state.intersect_ray(query)
+	
+	if result:
+		var obj = result.collider
+		print("hit:", result.collider.name)
+		#if obj.is_in_group("focus"):
+			#obj.focus_found()
+	else: 
+		print("no mask 2")

@@ -32,7 +32,7 @@ adjustment_contrast = 1.07
 [node name="level" type="Node3D" unique_id=677059764]
 script = ExtResource("1_qohg2")
 
-[node name="bedroom" parent="." unique_id=1796675119 instance=ExtResource("1_7lnir")]
+[node name="bedroom" parent="." unique_id=2025571192 instance=ExtResource("1_7lnir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00036031008, -0.0072535276, 0.00019621849)
 
 [node name="player" parent="." unique_id=323690231 instance=ExtResource("4_ktfr2")]
@@ -59,7 +59,7 @@ distance_fade_enabled = true
 omni_range = 2.6257808
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="env" unique_id=1981660340]
-transform = Transform3D(1, 0, 0, 0, 0.94125855, 0.33768675, 0, -0.33768675, 0.94125855, 0.25621486, 0.91784203, 1.3329054)
+transform = Transform3D(1, 0, 0, 0, 0.94125855, 0.33768675, 0, -0.33768675, 0.94125855, 0.25621486, 0.91784203, 3.1972327)
 light_color = Color(0.15022907, 0.21676457, 0.30236703, 1)
 light_energy = 14.83
 light_indirect_energy = 0.0
@@ -72,7 +72,6 @@ distance_fade_begin = 0.0
 
 [node name="lamp" type="OmniLight3D" parent="env" unique_id=1938144192]
 transform = Transform3D(-0.71958125, 0.5523353, -0.42086643, -0.49710202, 0.013457841, 0.86758775, 0.48486328, 0.83351344, 0.26488298, -0.7791225, 0.45434588, -1.3183987)
-visible = false
 light_color = Color(0.8089983, 0.8089983, 0.8089982, 1)
 light_energy = 0.1
 light_specular = 0.0

@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://c4jmsg1m5v61e" path="res://hud/hud.gd" id="1_ks8t7"]
 [ext_resource type="Texture2D" uid="uid://bjhw3t71msdr1" path="res://icon.svg" id="1_nb4k0"]
 [ext_resource type="Texture2D" uid="uid://ub4ue4jfd1we" path="res://assets/ui/sdgfsszfsfasfas.png" id="3_fjv1a"]
-[ext_resource type="Texture2D" uid="uid://clmh5jgxe1cxf" path="res://assets/ui/batterychaarged1.png" id="3_svhta"]
-[ext_resource type="Texture2D" uid="uid://cgvc7g23g74tx" path="res://assets/ui/battery0charged.png" id="4_fjv1a"]
-[ext_resource type="Texture2D" uid="uid://cg7uhctw6s5x" path="res://assets/ui/batterycharged.png" id="5_0ivg5"]
+[ext_resource type="Texture2D" uid="uid://djciv2bjcrdls" path="res://assets/ui/barempty.png" id="6_1kkc0"]
+[ext_resource type="Texture2D" uid="uid://cxy2e485qfgwl" path="res://assets/ui/fearempty.png" id="7_1kkc0"]
+[ext_resource type="Texture2D" uid="uid://xguxpoo0h8aa" path="res://assets/ui/barfull.png" id="7_qv4qp"]
+[ext_resource type="Texture2D" uid="uid://1f1gqleu5wor" path="res://assets/ui/fearfull.png" id="8_qv4qp"]
+[ext_resource type="Texture2D" uid="uid://c87cykmsxf8ky" path="res://assets/ui/ligthtningbolt.png" id="8_sh35x"]
+[ext_resource type="Texture2D" uid="uid://c66xva1rbcfna" path="res://assets/ui/relaxempty.png" id="9_sh35x"]
+[ext_resource type="Texture2D" uid="uid://cbirjd25ora8s" path="res://assets/ui/relaxfull.png" id="10_gms7k"]
 
 [sub_resource type="SystemFont" id="SystemFont_fjv1a"]
 subpixel_positioning = 0
@@ -31,9 +35,14 @@ texture_normal = ExtResource("1_nb4k0")
 texture_pressed = ExtResource("1_nb4k0")
 
 [node name="message" type="Label" parent="." unique_id=1795526815]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.010000001
+anchor_bottom = 0.016
+offset_left = 243.0
+offset_top = 32.0
+offset_right = 383.8
+offset_bottom = 81.72
 theme_override_font_sizes/font_size = 25
 
 [node name="menu_cont" type="Control" parent="." unique_id=1319775477]
@@ -97,75 +106,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 text = "Continue"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1848402781]
-position = Vector2(164.79367, 802.019)
-rotation = -1.436406
-scale = Vector2(0.31147814, 0.2570253)
-texture = ExtResource("3_svhta")
-
-[node name="flashlight" type="VBoxContainer" parent="." unique_id=1117148667]
-layout_mode = 0
-offset_left = 90.01932
-offset_top = 704.3213
-offset_right = 2010.0193
-offset_bottom = 4484.3213
-rotation = 0.08726646
-scale = Vector2(0.08, 0.08)
-theme_override_constants/separation = -405
-
-[node name="flash_battery5" type="TextureProgressBar" parent="flashlight" unique_id=71604968]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 400.0
-max_value = 500.0
-value = 500.0
-fill_mode = 3
-texture_under = ExtResource("4_fjv1a")
-texture_progress = ExtResource("5_0ivg5")
-
-[node name="flash_battery4" type="TextureProgressBar" parent="flashlight" unique_id=1361179208]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 300.0
-max_value = 400.0
-value = 400.0
-fill_mode = 3
-texture_under = ExtResource("4_fjv1a")
-texture_progress = ExtResource("5_0ivg5")
-
-[node name="flash_battery3" type="TextureProgressBar" parent="flashlight" unique_id=1102138243]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 200.0
-max_value = 300.0
-value = 300.0
-fill_mode = 3
-texture_under = ExtResource("4_fjv1a")
-texture_progress = ExtResource("5_0ivg5")
-
-[node name="flash_battery2" type="TextureProgressBar" parent="flashlight" unique_id=1475533114]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 100.0
-max_value = 200.0
-value = 200.0
-fill_mode = 3
-texture_under = ExtResource("4_fjv1a")
-texture_progress = ExtResource("5_0ivg5")
-
-[node name="flash_battery" type="TextureProgressBar" parent="flashlight" unique_id=617832256]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 3
-value = 100.0
-fill_mode = 3
-texture_under = ExtResource("4_fjv1a")
-texture_progress = ExtResource("5_0ivg5")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=451383410]
 layout_mode = 1
 anchors_preset = 15
@@ -179,14 +119,48 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 45
 
-[node name="fearbar" type="ProgressBar" parent="VBoxContainer" unique_id=1462735665]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
+[node name="flash_battery" type="TextureProgressBar" parent="." unique_id=1791335519]
+layout_mode = 0
+offset_left = -93.000015
+offset_top = 886.0
+offset_right = 1955.0
+offset_bottom = 2934.0
+rotation = 4.712389
+scale = Vector2(0.24, 0.155)
+value = 24.0
+texture_under = ExtResource("6_1kkc0")
+texture_progress = ExtResource("7_qv4qp")
+tint_progress = Color(0.82606, 0.82606006, 0.82606, 1)
 
-[node name="relaxbar" type="ProgressBar" parent="VBoxContainer" unique_id=1213403320]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1139532454]
+modulate = Color(0.851769, 0.8517689, 0.85176885, 1)
+position = Vector2(125.00001, 867)
+rotation = 0.0837758
+scale = Vector2(0.068, 0.072)
+texture = ExtResource("8_sh35x")
+
+[node name="fearbar" type="TextureProgressBar" parent="." unique_id=1805571648]
+layout_mode = 0
+offset_left = 1316.9199
+offset_top = 736.0
+offset_right = 3669.8613
+offset_bottom = 2889.8826
+scale = Vector2(0.29, 0.21)
+value = 90.0
+texture_under = ExtResource("7_1kkc0")
+texture_progress = ExtResource("8_qv4qp")
+tint_progress = Color(0.47788018, 0.47788012, 0.47788012, 1)
+
+[node name="relaxbar" type="TextureProgressBar" parent="." unique_id=532692516]
+layout_mode = 0
+offset_left = 775.765
+offset_top = 741.0
+offset_right = 2823.7651
+offset_bottom = 2789.0
+scale = Vector2(-0.29, 0.21)
+texture_under = ExtResource("9_sh35x")
+texture_progress = ExtResource("10_gms7k")
+tint_progress = Color(0.47843137, 0.47843137, 0.47843137, 1)
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="menu_cont/MarginContainer2/MarginContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]

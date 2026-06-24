@@ -6,7 +6,7 @@ extends Node3D
 
 signal battery_changed
 
-var drain_rate := 15.0
+var drain_rate := 2.0
 var curr_inspected_obj
 var can_move : bool
 var can_look : bool
@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 		battery_changed.emit(Global.flash_battery)
 		if Global.flash_battery == 0:
 			hud._show_msg("No flashlight battery",2.0)
+	
 
 # inspect photos
 func inspect_obj(obj):
