@@ -20,4 +20,5 @@ func _input(event: InputEvent) -> void:
 		print("right clicked")
 		get_tree().change_scene_to_file("res://level/level.tscn")
 	
+
 	

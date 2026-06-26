@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c0kte2at77nay" path="res://Interactables/photo1/photo_collider.gd" id="3_k1phv"]
 [ext_resource type="Shader" uid="uid://bcdxv5rh08jki" path="res://assets/shaders/border.gdshader" id="4_e0biy"]
 [ext_resource type="Script" uid="uid://dondcjhyri7nn" path="res://Interactables/photo1/focus_1.gd" id="5_k1phv"]
+[ext_resource type="Shader" uid="uid://kl2w8evo0x53" path="res://Interactables/photo1/focus.gdshader" id="6_8e0tk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8e0tk"]
 size = Vector3(19.126587, 1.4186668, 11.047852)
@@ -19,6 +20,15 @@ shader_parameter/thickness = 0.01
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gretj"]
 size = Vector3(3.55719, 2.025055, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8e0tk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cyeqh"]
+render_priority = 0
+shader = ExtResource("6_8e0tk")
+shader_parameter/alphaV = 1.0
+shader_parameter/border = 2.0
+shader_parameter/str = 0.05
 
 [node name="Photo1" type="Node3D" unique_id=1305046314 groups=["interactable"]]
 transform = Transform3D(0.44778475, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -44,6 +54,7 @@ mesh = SubResource("BoxMesh_ey6ry")
 surface_material_override/0 = SubResource("ShaderMaterial_e0biy")
 
 [node name="focuses" type="Node3D" parent="photo1" unique_id=1320100534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.303349, 7.2292376, 0)
 
 [node name="focus1" type="Area3D" parent="photo1/focuses" unique_id=1074424240 groups=["focus"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.185043, -3.7883775, 1.129564)
@@ -55,3 +66,9 @@ script = ExtResource("5_k1phv")
 transform = Transform3D(2.485, 0, 0, 0, 2.485, 0, 0, 0, 2.485, 0.1121521, 1.2736304, 0)
 shape = SubResource("BoxShape3D_gretj")
 debug_color = Color(0, 0.5711929, 0.6649203, 1)
+
+[node name="focusBox" type="MeshInstance3D" parent="photo1/focuses/focus1" unique_id=225435063]
+transform = Transform3D(7.365956, 0, 0, 0, 3.6205482, 0, 0, 0, 3.2058516, 0, 1.3059516, 0)
+visible = false
+mesh = SubResource("SphereMesh_8e0tk")
+surface_material_override/0 = SubResource("ShaderMaterial_cyeqh")

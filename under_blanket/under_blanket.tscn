@@ -49,3 +49,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5420227)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1971222849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3398438)
+light_energy = 1.383

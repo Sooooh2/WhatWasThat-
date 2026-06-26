@@ -10,6 +10,7 @@ extends StaticBody3D
 @onready var photo_1: Sprite3D = $".."
 @onready var outline: MeshInstance3D = $outline
 @onready var focus_1: Area3D = $"../focuses/focus1"
+@onready var focus_box: MeshInstance3D = $"../focuses/focus1/focusBox"
 
 @onready var photo_collider: StaticBody3D = $"."
 
@@ -46,9 +47,12 @@ func toggle_examine():
 var hovering := false
 
 func focus_found():
-	print("Focus layer:", $"../focuses/focus1".collision_layer)
 	if examining:
-		print("asfuasvv yayyyyy focus workssss")
+		focus_box.visible = true
+		await get_tree().create_timer(3.5).timeout
+		print("successfully examined")
+		focus_box.visible = false
+		
 func _on_focus_1_mouse_entered():
 	hovering = true
 	print("entered")

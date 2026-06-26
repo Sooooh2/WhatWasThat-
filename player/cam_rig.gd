@@ -28,19 +28,19 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# be able to capture and free the mouse cursor
-	if event.is_action_pressed("free_mouse"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#if event.is_action_pressed("free_mouse"):
+		#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+		#else:
+			#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# rotate the cam - look around logic
-	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
-			rotation.y += -event.relative.x * cam_sense
-			rotation.x += -event.relative.y * cam_sense
-			rotation.y = clamp(rotation.y, deg_to_rad(-50), deg_to_rad(60))
-			rotation.x = clamp(rotation.x, deg_to_rad(-50), deg_to_rad(60))
+	#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion:
+		rotation.y += -event.relative.x * cam_sense
+		rotation.x += -event.relative.y * cam_sense
+		rotation.y = clamp(rotation.y, deg_to_rad(-50), deg_to_rad(60))
+		rotation.x = clamp(rotation.x, deg_to_rad(-50), deg_to_rad(60))
 
 
 	# interaction with photos mechanism while under the blanket
@@ -127,8 +127,7 @@ func check_focus_hover():
 	
 	if result:
 		var obj = result.collider
-		print("hit:", result.collider.name)
-		#if obj.is_in_group("focus"):
-			#obj.focus_found()
+		if obj.is_in_group("focus"):
+			obj.focus_found()
 	else: 
 		print("no mask 2")

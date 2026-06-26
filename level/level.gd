@@ -8,7 +8,7 @@ extends Node3D
 
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	hud.get_node("menu").show()
 	hud.menu_pressed.connect(_on_menu_pressed)
 	hud.continue_pressed.connect(_on_cont_pressed)
@@ -42,10 +42,10 @@ func _on_menu_pressed() -> void:
  #!get_tree().paused
 	menu_cont.visible = !menu_cont.visible
 	menu.visible = !menu.visible
-	if get_tree().paused:
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#if get_tree().paused:
+		#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	#else:
+		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _on_cont_pressed() -> void:
@@ -54,7 +54,7 @@ func _on_cont_pressed() -> void:
 	print("Paused:", get_tree().paused)
 	menu_cont.visible = !menu_cont.visible
 	menu.visible = !menu.visible
-	if get_tree().paused:
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#if get_tree().paused:
+		#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	#else:
+		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

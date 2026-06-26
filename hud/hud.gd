@@ -4,7 +4,9 @@ signal menu_pressed
 signal continue_pressed
 
 @onready var message: Label = $message
-@onready var flash_battery: TextureProgressBar = $flash_battery
+@onready var flash_battery: ProgressBar = $HBoxContainer/flash_battery
+@onready var fearbar: ProgressBar = $HBoxContainer/fearbar
+@onready var relaxbar: ProgressBar = $HBoxContainer/relaxbar
 
 
 
@@ -45,11 +47,11 @@ func _on_battery_changed(value):
 
 
 func _on_fear_changed(value):
-	$fearbar.value = value
+	fearbar.value = value
 
 
 func _on_relax_changed(value):
-	$relaxbar.value = value
+	relaxbar.value = value
 
 # open pause menu 
 func _on_menu_pressed() -> void:
